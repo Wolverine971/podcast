@@ -26,6 +26,11 @@ export default {
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
+  content: {
+    // Disable for security reason on CodeSandBox
+    liveEdit: true
+  },
+
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/typescript
@@ -40,6 +45,7 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    '@nuxt/content'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

@@ -3,7 +3,7 @@
     cols="12"
     :md="size === 2 ? 6 : size === 3 ? 4 : 2"
   >
-    <base-card
+    <v-card
       :height="value.prominent ? 450 : 350"
       color="grey lighten-1"
       dark
@@ -44,7 +44,7 @@
           </v-col>
         </v-row>
       </v-img>
-    </base-card>
+    </v-card>
   </v-col>
 </template>
 

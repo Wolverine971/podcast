@@ -80,9 +80,18 @@ export default {
           route: '/'
         },
         {
-          name: 'Hall Of Fame',
+          name: 'Favorite Youtube Videos',
           route: 'hof'
-        }
+        },
+        {
+          name: 'Blog',
+          route: '/blog'
+        },
+        {
+          name: 'About',
+          route: '/about'
+        },
+       
       ],
     }
   }
