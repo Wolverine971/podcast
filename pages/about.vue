@@ -1,162 +1,156 @@
 <template>
-  <v-main>
-    <v-container fluid grid-list-md>
-      <v-layout row wrap justify-center>
-        <!-- Left card -->
-        <v-flex d-flex xs12 sm5 md4 lg4>
-          <v-card id="left_card" class="pad_card">
-            <v-layout mt-4 column align-center>
-              <p class="headline">Professional</p>
-            </v-layout>
-
-            <div column align-center my-4 mx-3>
-              <v-subheader inset>Statement</v-subheader>
-              <div
-                class="text-xs-center statement"
-                style="white-space: pre-line"
+  <v-container fluid grid-list-md>
+    <v-layout row wrap justify-center>
+      <!-- Left card -->
+      <v-flex d-flex xs12 sm5 md4 lg4>
+        <v-card class="pad_card">
+          <v-layout mt-4 column align-center>
+            <p class="headline">Professional</p>
+          </v-layout>
+          <div column align-center my-4 mx-3>
+            <v-subheader>Statement</v-subheader>
+            <div class="text-xs-center statement" style="white-space: pre-line">
+              I was a veteran, but it is tech I am better in,
+              I have an entrepreneurial spirit, and work with me and you will hear it,
+              I work up and down the stack, if you need something done on me you can always fall back,
+              I enjoy learning about systems and coming up with efficient solutions, 
+              I seek to impress those around me with my creative contributions, 
+              I will gain the respect of everyone I meet, even the confucians.
+            </div>
+          </div>
+          <div column align-center my-4 mx-3>
+            <v-subheader>Technologies I like to use</v-subheader>
+            <div class="text-xs-center">
+              <v-chip
+                v-for="(tTag, i) in tech_tags"
+                :key="i + 'c'"
+                :color="tTag.color"
+                text-color="white"
               >
-                I was a veteran, but it is tech I am better in. 
-                I have an entrepreneurial spirit, and work with me and you will hear it. 
-                I work up and down the stack, if you need something done on me you can always fall back. 
-                I enjoy learning about systems and coming up with efficient solutions, 
-                I seek to impress those around me with my creative contributions, 
-                I will gain the respect of everyone I meet, even the confucians.
-              </div>
+                <v-avatar :color="tTag.color">
+                  <v-icon v-if="tTag.icon">{{ tTag.icon }}</v-icon>
+                  <img v-else :src="tTag.url" />
+                </v-avatar>
+                {{ tTag.name }}
+              </v-chip>
             </div>
+          </div>
+          <div column align-center my-4 mx-3>
+            <v-subheader class="margin-top">Experience</v-subheader>
+            <v-list dense>
+              <v-list-item
+                @click="handleNav(proj.site)"
+                v-for="(proj, i) in past_projects"
+                :key="i + 'c'"
+              >
+                <v-list-item-avatar :color="proj.color">
+                  <v-icon v-if="proj.icon" :color="proj.iconColor">
+                    {{ proj.icon }}
+                  </v-icon>
+                  <img v-else :src="proj.url" />
+                </v-list-item-avatar>
 
-            <div column align-center my-4 mx-3>
-              <v-subheader inset>Technologies I like to use</v-subheader>
-              <div class="text-xs-center">
-                <v-chip
-                  v-for="(item, i) in tech_tags"
-                  :key="i"
-                  :color="item.color"
-                  text-color="white"
-                >
-                  <v-avatar :color="item.color">
-                    <v-icon v-if="item.icon">{{ item.icon }}</v-icon>
-                    <img v-else :src="item.url" />
-                  </v-avatar>
-                  {{ item.name }}
-                </v-chip>
-              </div>
+                <v-list-item-content>
+                  <v-list-item-title> {{ proj.name }}</v-list-item-title>
+                  <v-list-item-subtitle>
+                    Company- {{ proj.company }}
+                  </v-list-item-subtitle>
+                </v-list-item-content>
+              </v-list-item>
+            </v-list>
+          </div>
+        </v-card>
+      </v-flex>
+      <!-- Right card -->
+      <v-flex d-flex xs12 sm5 md4 lg4>
+        <v-card class="pad_card">
+          <v-layout mt-4 column align-center>
+            <p class="headline">Personal</p>
+          </v-layout>
+          <div column align-center my-4 mx-3>
+            <v-subheader>Info</v-subheader>
+            <v-list dense>
+              <v-list-item v-for="(info, i) in infos" :key="i + 'i'">
+                <v-list-item-avatar>
+                  <v-icon medium v-if="info.icon" :color="info.color">
+                    {{ info.icon }}
+                  </v-icon>
+                  <img v-else :src="info.url" />
+                </v-list-item-avatar>
+                <v-list-item-content>
+                  <v-list-item-title> {{ info.title }}</v-list-item-title>
+                  <v-list-item-subtitle>
+                    {{ info.info }}
+                  </v-list-item-subtitle>
+                </v-list-item-content>
+              </v-list-item>
+              <v-list-item
+                v-for="(contact, j) in contact_methods"
+                :key="j + 'j'"
+                @click="handleNav(contact.site)"
+              >
+                <v-list-item-avatar>
+                  <v-icon v-if="contact.icon" :color="contact.color">
+                    {{ contact.icon }}
+                  </v-icon>
+                  <img v-else :src="contact.url" />
+                </v-list-item-avatar>
+                <v-list-item-content>
+                  <v-list-item-title> {{ contact.title }}</v-list-item-title>
+                  <v-list-item-subtitle>
+                    {{ contact.id_name }}
+                  </v-list-item-subtitle>
+                </v-list-item-content>
+              </v-list-item>
+            </v-list>
+          </div>
+          <div column align-center my-4 mx-3>
+            <v-subheader class="margin-bot">Tags</v-subheader>
+            <div class="text-xs-center">
+              <v-chip
+                v-for="(tag, i) in personal_tags"
+                :key="i + 'p'"
+                :color="tag.color"
+                text-color="white"
+              >
+                <v-avatar :color="tag.color">
+                  <v-icon v-if="tag.icon">{{ tag.icon }}</v-icon>
+                  <img v-else :src="tag.url" />
+                </v-avatar>
+                {{ tag.name }}
+              </v-chip>
             </div>
-            <div column align-center my-4 mx-3>
-              <v-subheader inset>Experience</v-subheader>
-              <v-list dense>
-                <div v-for="(item, i) in past_projects" :key="i">
-                  <v-list-item @click="handleNav(item.site)">
-                    <v-list-item-avatar :color="item.color">
-                      <v-icon v-if="item.icon" :color="item.iconColor">
-                        {{ item.icon }}
-                      </v-icon>
-                      <img v-else :src="item.url" />
-                    </v-list-item-avatar>
+          </div>
 
-                    <v-list-item-content>
-                      <v-list-item-title> {{ item.name }}</v-list-item-title>
-                      <v-list-item-subtitle>
-                        Company- {{ item.company }}
-                      </v-list-item-subtitle>
-                    </v-list-item-content>
-                  </v-list-item>
-                </div>
-              </v-list>
-            </div>
-          </v-card>
-        </v-flex>
-        <!-- Right card -->
-        <v-flex d-flex xs12 sm5 md4 lg4>
-          <v-card id="right_card" class="pad_card">
-            <v-layout mt-4 column align-center>
-              <p class="headline">Personal</p>
-            </v-layout>
-
-            <div column align-center my-4 mx-3>
-              <v-subheader >Info</v-subheader>
-              <v-list dense>
-                <div v-for="(item, i) in info" :key="i">
-                  <v-list-item>
-                    <v-list-item-avatar>
-                      <v-icon medium v-if="item.icon" :color="item.color">
-                        {{ item.icon }}
-                      </v-icon>
-                      <img v-else :src="item.url" />
-                    </v-list-item-avatar>
-
-                    <v-list-item-content>
-                      <v-list-item-title> {{ item.title }}</v-list-item-title>
-                      <v-list-item-subtitle>
-                        {{ item.info }}
-                      </v-list-item-subtitle>
-                    </v-list-item-content>
-                  </v-list-item>
-                </div>
-                <div v-for="(item, j) in contact_methods" :key="j">
-                  <v-list-item @click="handleNav(item.site)">
-                    <v-list-item-avatar>
-                      <v-icon v-if="item.icon" :color="item.color">
-                        {{ item.icon }}
-                      </v-icon>
-                      <img v-else :src="item.url" />
-                    </v-list-item-avatar>
-
-                    <v-list-item-content>
-                      <v-list-item-title> {{ item.title }}</v-list-item-title>
-                      <v-list-item-subtitle>
-                        {{ item.id_name }}
-                      </v-list-item-subtitle>
-                    </v-list-item-content>
-                  </v-list-item>
-                </div>
-              </v-list>
-            </div>
-            <div column align-center my-4 mx-3>
-              <v-subheader >Hobbies</v-subheader>
-              <div class="text-xs-center">
-                <v-chip
-                  v-for="(item, i) in hobbies"
-                  :key="i"
-                  :color="item.color"
-                  text-color="white"
-                >
-                  <v-avatar :color="item.color">
-                    <v-icon v-if="item.icon">{{ item.icon }}</v-icon>
-                    <img v-else :src="item.url" />
-                  </v-avatar>
-                  {{ item.name }}
-                </v-chip>
-              </div>
-            </div>
-
-            <div column align-center my-4 mx-3>
-              <v-subheader inset>Unsolicited Recommendations</v-subheader>
-
-              <v-list dense>
-                <div v-for="(item, i) in recommendations" :key="i">
-                  <v-list-item @click="handleNav(item.site)">
-                    <v-list-item-avatar>
-                      <v-icon v-if="item.icon" :color="item.color">
-                        {{ item.icon }}
-                      </v-icon>
-                      <img v-else :src="item.url" />
-                    </v-list-item-avatar>
-
-                    <v-list-item-content>
-                      <v-list-item-title> {{ item.name }}</v-list-item-title>
-                      <v-list-item-subtitle>
-                        {{ item.description }}
-                      </v-list-item-subtitle>
-                    </v-list-item-content>
-                  </v-list-item>
-                </div>
-              </v-list>
-            </div>
-          </v-card>
-        </v-flex>
-      </v-layout>
-    </v-container>
-  </v-main>
+          <div column align-center my-4 mx-3>
+            <v-subheader class="margin-top">
+              Unsolicited Recommendations
+            </v-subheader>
+            <v-list dense>
+              <v-list-item
+                @click="handleNav(rec.site)"
+                v-for="(rec, i) in recommendations"
+                :key="i + 'r'"
+              >
+                <v-list-item-avatar>
+                  <v-icon v-if="rec.icon" :color="rec.color">
+                    {{ rec.icon }}
+                  </v-icon>
+                  <img v-else :src="rec.url" />
+                </v-list-item-avatar>
+                <v-list-item-content>
+                  <v-list-item-title> {{ rec.name }}</v-list-item-title>
+                  <v-list-item-subtitle class="wrap">
+                    {{ rec.description }}
+                  </v-list-item-subtitle>
+                </v-list-item-content>
+              </v-list-item>
+            </v-list>
+          </div>
+        </v-card>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>
@@ -233,20 +227,27 @@ export default {
           color: '#150b0b',
           site: 'https://youthmentoring.org/',
         },
+        {
+          url: './usmc.svg',
+          name: 'USMC Scout Sniper',
+          company: 'USMC',
+          color: '#f72585',
+          iconColor: '#191970',
+          site: 'https://en.wikipedia.org/wiki/United_States_Marine_Corps_Scout_Sniper',
+        },
       ],
-      hobbies: [
-        { url: './usmc.svg', name: 'USMC Vet', color: 'green' },
+      personal_tags: [
         {
           icon: 'mdi-human-male-female-child',
           name: 'Dad',
-          color: 'indigo',
+          color: 'grey',
         },
-        { icon: 'mdi-gamepad', name: 'Hacker', color: 'red' },
-        { url: './enneagram.svg', name: 'Enneagram 8', color: 'orange' },
-        { icon: 'mdi-chef-hat', name: 'Chef', color: 'blue' },
-        { url: './ss.png', name: '', color: '' },
+        { icon: 'mdi-arrow-collapse', name: 'Contrarian', color: 'black' },
+        { url: './enneagram.svg', name: 'Enneagram 8', color: 'grey' },
+        { icon: 'mdi-chef-hat', name: 'Chef', color: 'black' },
+        { url: './ss.png', name: '', color: 'grey' },
       ],
-      info: [
+      infos: [
         {
           icon: 'mdi-city',
           title: 'Home',
@@ -325,6 +326,18 @@ export default {
           color: '#833AB4',
         },
       ],
+      peopleILike: [
+        { name: 'Naval' },
+        { name: 'Tim Ferris' },
+        { name: 'Peter Thiel' },
+        { name: 'Eric Weinstein' },
+        { name: 'Elon Musk' },
+        { name: 'Nassim Taleb' },
+        { name: 'Robert Greene' },
+        { name: 'Peter Zeihan' },
+        { name: 'James Altucher' },
+        { name: 'Josh Waitzkin' },
+      ],
     }
   },
   methods: {
@@ -343,5 +356,14 @@ export default {
   font-size: 0.8125rem !important;
   font-weight: 500 !important;
   line-height: 1rem !important;
+}
+.wrap {
+  white-space: inherit;
+}
+.margin-top {
+  margin-top: 10px;
+}
+.margin-bot {
+  margin-bottom: 10px;
 }
 </style>

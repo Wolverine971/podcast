@@ -2,7 +2,8 @@
   <div>
     <blog-list />
     <h1>{{ page.title }}</h1>
-    <p>{{ page.description }}</p>
+    <h2>{{ page.description }}</h2>
+    <v-divider></v-divider>
     <nuxt-content :document="page"/>
   </div>
 </template>

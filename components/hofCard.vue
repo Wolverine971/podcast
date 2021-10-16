@@ -1,7 +1,7 @@
 <template>
   <v-col
     cols="12"
-    :md="size === 2 ? 6 : size === 3 ? 4 : 2"
+    :md="size"
   >
     <v-card
       :height="value.prominent ? 450 : 350"
@@ -10,7 +10,7 @@
       href="#!"
     >
       <v-img
-        :src="`https://img.youtube.com/vi/${value.src}/maxresdefault.jpg`"
+        :src="value.src ? `https://img.youtube.com/vi/${value.src}/maxresdefault.jpg` : ''" 
         height="100%"
         gradient="rgba(0, 0, 0, .42), rgba(0, 0, 0, .42)"
       >

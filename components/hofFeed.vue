@@ -1,14 +1,22 @@
 <template>
   <v-container>
+    <!-- <hof-card :size="6" :value="pod" /> -->
+    <iframe
+      width="100%"
+      height="500"
+      src="https://www.youtube.com/embed/YpW_KMHXdl4"
+      title="Leadership Podcast"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
     <v-row>
-      <v-col cols="12">
-        <slot />
-      </v-col>
+      
 
       <hof-card
         v-for="(video, i) in videos"
         :key="i"
-        :size="layout[i]"
+        :size="3"
         :value="video"
       />
     </v-row>
@@ -27,18 +35,20 @@ export default {
   },
 
   data: () => ({
-    layout: [4, 3, 2, 4, 2, 3, 3, 4, 3, 2, 3, 4, 2, 3, 2, 4, 2, 3, 3, 2, 4, 2, 3, 3, 4, 3, 2],
-    page: 1,
+    layout: [
+      4, 3, 2, 4, 2, 3, 3, 4, 3, 2, 3, 4, 2, 3, 2, 4, 2, 3, 3, 2, 4, 2, 3, 3, 4,
+      3, 2,
+    ],
     videos: [],
+    pod: {
+      title: 'Leadership Podcast',
+      author: 'DJ and Nick',
+      category: 'Genius',
+      src: 'YpW_KMHXdl4',
+    },
   }),
   created() {
     this.videos = videos
-  },
-
-  watch: {
-    page() {
-      window.scrollTo(0, 0)
-    },
   },
 }
 </script>

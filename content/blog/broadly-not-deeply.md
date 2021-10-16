@@ -2,6 +2,16 @@
 title: Broadly Not Deeply
 description: We no longer see deeply, we see broadly
 ---
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents** 
+
+- [We can see broadly but not deeply.](#we-can-see-broadly-but-not-deeply)
+    - [Intro and implications](#intro-and-implications)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+
 
 ## We can see broadly but not deeply. 
 
@@ -94,7 +104,7 @@ All these descriptions and peripheral synonyms surrounding "curiosity" are neede
 
 
 
-takes
+Checkout [9takes](https://9takes.com/)
 
 and they are inquisitive like a child who has just learned to walk. They 
 
