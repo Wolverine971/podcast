@@ -30,34 +30,20 @@
           </ul>
         </v-card-text>
       </v-card>
-      <v-card>
-        <v-card-text>
-          <!-- <div class="text-center">
-            <base-timer />
-          </div> -->
-        </v-card-text>
-      </v-card>
     </v-col>
   </v-row>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
-
 export default {
-  components: {
-    Logo,
-    VuetifyLogo
-  },
   data: () => ({
     links: ['Dashboard', 'Messages', 'Profile', 'Updates'],
   }),
 }
 </script>
 <style scoped>
-.iframe-placeholder
-{
-   background: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100% 100%"><text fill="%23FF0000" x="50%" y="50%" font-family="\'Lucida Grande\', sans-serif" font-size="24" text-anchor="middle">Loading...</text></svg>') 0px 0px no-repeat;
+.iframe-placeholder {
+  background: url('/loading2.svg');
+  background-repeat: no-repeat;
 }
 </style>

@@ -1,18 +1,18 @@
 <template>
   <v-container>
     <!-- <hof-card :size="6" :value="pod" /> -->
+    <div class="iframe-placeholder"></div>
     <iframe
       width="100%"
       height="500"
       src="https://www.youtube.com/embed/YpW_KMHXdl4"
       title="Leadership Podcast"
+      class="iframe-placeholder"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen
     ></iframe>
     <v-row>
-      
-
       <hof-card
         v-for="(video, i) in videos"
         :key="i"
@@ -52,3 +52,9 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.iframe-placeholder {
+  background: url('/loading2.svg');
+}
+</style>

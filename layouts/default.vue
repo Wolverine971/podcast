@@ -1,21 +1,8 @@
 <template>
-  <v-app dark>
-     <v-app-bar
-      app
-      color="white"
-      flat
-    >
-
-      <v-tabs
-        centered
-        class="ml-n9"
-        color="grey darken-1"
-      >
-        <v-tab
-          v-for="(link, i) in links"
-          :key="i"
-          :to="link.route"
-        >
+  <v-app dark :class="$route.path.includes('about') ? 'city' : 'djFace'">
+    <v-app-bar app color="white" flat>
+      <v-tabs centered class="ml-n9" color="grey darken-1">
+        <v-tab v-for="(link, i) in links" :key="i" :to="link.route">
           {{ link.name }}
         </v-tab>
       </v-tabs>
@@ -25,27 +12,17 @@
         <nuxt />
       </v-container>
     </v-main>
-    <v-navigation-drawer
-      v-model="rightDrawer"
-      :right="right"
-      temporary
-      fixed
-    >
+    <v-navigation-drawer v-model="rightDrawer" :right="right" temporary fixed>
       <v-list>
         <v-list-item @click.native="right = !right">
           <v-list-item-action>
-            <v-icon light>
-              mdi-repeat
-            </v-icon>
+            <v-icon light> mdi-repeat </v-icon>
           </v-list-item-action>
           <v-list-item-title>Switch drawer (click me)</v-list-item-title>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-footer
-      :absolute="!fixed"
-      app
-    >
+    <v-footer :absolute="!fixed" app>
       <span>&copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
   </v-app>
@@ -53,7 +30,7 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       clipped: false,
       drawer: false,
@@ -62,13 +39,13 @@ export default {
         {
           icon: 'mdi-apps',
           title: 'Welcome',
-          to: '/'
+          to: '/',
         },
         {
           icon: 'mdi-chart-bubble',
           title: 'Inspire',
-          to: '/inspire'
-        }
+          to: '/inspire',
+        },
       ],
       miniVariant: false,
       right: true,
@@ -77,23 +54,36 @@ export default {
       links: [
         {
           name: 'Home',
-          route: '/'
+          route: '/',
         },
         {
           name: 'Favorite Youtube Videos',
-          route: 'hof'
+          route: 'hof',
         },
         {
           name: 'Blog',
-          route: '/blog'
+          route: '/blog',
         },
         {
           name: 'About',
-          route: '/about'
+          route: '/about',
         },
-       
       ],
     }
-  }
+  },
 }
 </script>
+<style scoped>
+.city {
+  background-image: url('/background.svg');
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+}
+.djFace {
+  background-image: url('/djFace.svg');
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+}
+</style>

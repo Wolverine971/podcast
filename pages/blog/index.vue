@@ -10,7 +10,7 @@ export default {
 </script>
 
 <template>
-  <div>
+  <v-card>
     <h1>My Blog Posts</h1>
     <ul>
       <li v-for="(post, index) in blogList" :key="`post-${index}`">
@@ -21,7 +21,7 @@ export default {
         <nuxt-content v-else :document="{ body: post.excerpt }" />
       </li>
     </ul>
-  </div>
+  </v-card>
 </template>
 
 <style></style>
