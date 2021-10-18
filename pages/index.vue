@@ -2,11 +2,11 @@
   <v-row justify="center" align="center">
     <v-col cols="12" sm="8" md="6">
       <v-card>
-        <v-card-title v-if="$axios.defaults.baseURL.includes('nickanddj')">
+        <v-card-title v-if="nick">
           NICK AND DJ TALK ABOUT STUFF DOT COM!
         </v-card-title>
         <v-card-text>
-          <div class="text-center" v-if="$axios.defaults.baseURL.includes('nickanddj')">
+          <div class="text-center" v-if="nick">
             <iframe
               width="100%"
               height="700vw"
@@ -16,7 +16,7 @@
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             ></iframe>
-            </div>
+          </div>
           <div class="text-center" v-else>
             <iframe
               width="100%"
@@ -29,14 +29,13 @@
             ></iframe>
           </div>
           <hr class="my-3" />
-          <div v-if="$axios.defaults.baseURL.includes('nickanddj')">
+          <div v-if="nick">
             <q>Up up and away!</q>
-              <cite>&mdash; Nick</cite>
-
+            <cite>&mdash; Nick</cite>
           </div>
           <div v-else>
             <q>You dont know until you try</q>
-              <cite>&mdash; DJ</cite>
+            <cite>&mdash; DJ</cite>
           </div>
           <hr class="my-3" />
           <h1>Podcast</h1>
@@ -57,7 +56,12 @@
 export default {
   data: () => ({
     links: ['Dashboard', 'Messages', 'Profile', 'Updates'],
+    nick: false,
   }),
+
+  beforeMount() {
+    this.nick = window.location.href.includes('nickanddj')
+  },
 }
 </script>
 <style scoped>

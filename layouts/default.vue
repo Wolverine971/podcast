@@ -1,9 +1,8 @@
 <template>
   <v-app dark :class="$route.path.includes('about') ? 'city' : 'djFace'">
     <v-app-bar app color="white" flat>
-      <div v-if="$axios.defaults.baseURL.includes('nickanddj')"></div>
-      <v-tabs centered class="ml-n9" color="grey darken-1" v-else>
-        <v-tab v-for="(link, i) in links" :key="i" :to="link.route">
+      <v-tabs centered class="ml-n9" color="grey darken-1">
+        <v-tab v-for="(link, i) in links" :key="i" :to="link.route" :disabled="nick">
           {{ link.name }}
         </v-tab>
       </v-tabs>
@@ -23,7 +22,6 @@
 export default {
   data() {
     return {
-      
       title: 'Vuetify.js',
       links: [
         {
@@ -43,7 +41,11 @@ export default {
           route: '/about',
         },
       ],
+      nick: false,
     }
+  },
+  beforeMount() {
+    this.nick = window.location.href.includes('nickanddj')
   },
 }
 </script>
