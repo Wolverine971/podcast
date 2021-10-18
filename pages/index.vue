@@ -2,11 +2,11 @@
   <v-row justify="center" align="center">
     <v-col cols="12" sm="8" md="6">
       <v-card>
-        <v-card-title v-if="nick">
+        <v-card-title v-show="nick">
           NICK AND DJ TALK ABOUT STUFF DOT COM!
         </v-card-title>
         <v-card-text>
-          <div class="text-center" v-if="nick">
+          <div class="text-center" v-show="nick">
             <iframe
               width="100%"
               height="700vw"
@@ -17,7 +17,7 @@
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             ></iframe>
           </div>
-          <div class="text-center" v-else>
+          <div class="text-center" v-show="!nick">
             <iframe
               width="100%"
               height="700vw"
@@ -29,11 +29,11 @@
             ></iframe>
           </div>
           <hr class="my-3" />
-          <div v-if="nick">
+          <div v-show="nick">
             <q>Up up and away!</q>
             <cite>&mdash; Nick</cite>
           </div>
-          <div v-else>
+          <div v-show="!nick">
             <q>You dont know until you try</q>
             <cite>&mdash; DJ</cite>
           </div>
@@ -60,7 +60,9 @@ export default {
   }),
 
   beforeMount() {
-    this.nick = window.location.href.includes('nickanddj')
+    if(window && window.location){
+      this.nick = window.location.href.includes('nickanddj')
+    }
   },
 }
 </script>

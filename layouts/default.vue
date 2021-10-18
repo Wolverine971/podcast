@@ -2,7 +2,12 @@
   <v-app dark :class="$route.path.includes('about') ? 'city' : 'djFace'">
     <v-app-bar app color="white" flat>
       <v-tabs centered class="ml-n9" color="grey darken-1">
-        <v-tab v-for="(link, i) in links" :key="i" :to="link.route" :disabled="nick">
+        <v-tab
+          v-for="(link, i) in links"
+          :key="i"
+          :to="link.route"
+          :disabled="nick"
+        >
           {{ link.name }}
         </v-tab>
       </v-tabs>
@@ -45,7 +50,9 @@ export default {
     }
   },
   beforeMount() {
-    this.nick = window.location.href.includes('nickanddj')
+    if (window && window.location) {
+      this.nick = window.location.href.includes('nickanddj')
+    }
   },
 }
 </script>
