@@ -10,7 +10,7 @@
           <div column align-center my-4 mx-3>
             <v-subheader>Statement</v-subheader>
             <div class="text-xs-center statement" style="white-space: pre-line">
-              I was a veteran, but it is tech I am better in,
+              I was a veteran, but it is tech that I am better in,
               I have an entrepreneurial spirit, and work with me and you will hear it,
               I work up and down the stack, if you need something done on me you can always fall back,
               I enjoy learning about systems and coming up with efficient solutions, 

@@ -57,8 +57,8 @@ export default {
           route: '/',
         },
         {
-          name: 'Favorite Youtube Videos',
-          route: 'hof',
+          name: 'Favorites ',
+          route: '/favorites',
         },
         {
           name: 'Blog',
