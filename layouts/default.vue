@@ -42,8 +42,12 @@ export default {
           route: '/blog',
         },
         {
-          name: 'About',
+          name: 'About Me',
           route: '/about',
+        },
+        {
+          name: 'Burn Pit Map',
+          route: '/map',
         },
       ],
       nick: false,
