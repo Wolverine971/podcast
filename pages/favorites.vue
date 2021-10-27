@@ -3,15 +3,14 @@
     <v-card-title class="text-center justify-center py-6">
       <h1 class="font-weight-bold text-h2">Favorites</h1>
     </v-card-title>
-
-    <v-tabs v-model="selectedTab" background-color="transparent" color="" grow>
-      <v-tab v-for="(tab, i) in tabs" :key="i">
+    <div class="nav nav-tabs">
+      <v-btn v-for="(tab, i) in tabs" :key="i" @click="change(tab)"
+      :color="currentTab === tab ? 'grey' : ''">
         {{ tab }}
-      </v-tab>
-    </v-tabs>
-
-    <v-tabs-items v-model="selectedTab">
-        <v-tab-item>
+      </v-btn>
+    </div>
+    <div id="tabs">
+      <div title="Books" :class="currentTab === 'Books' ? '' : 'hide'">
         <h1>Favorite Books</h1>
         <v-list dense>
           <v-list-item
@@ -28,16 +27,22 @@
             </v-list-item-content>
           </v-list-item>
         </v-list>
-      </v-tab-item>
-      <v-tab-item>
-          <h1>Youtube Videos</h1>
+      </div>
+      <div
+        title="Youtube Videos"
+        :class="currentTab === 'Youtube Videos' ? '' : 'hide'"
+      >
+        <h1>Youtube Videos</h1>
         <section id="feed">
           <hof-feed>
             <slot />
           </hof-feed>
         </section>
-      </v-tab-item>
-      <v-tab-item>
+      </div>
+      <div
+        title="Interesting People"
+        :class="currentTab === 'People' ? '' : 'hide'"
+      >
         <h1>Interesting People</h1>
         <v-list dense>
           <v-list-item
@@ -50,9 +55,58 @@
             </v-list-item-content>
           </v-list-item>
         </v-list>
-      </v-tab-item>
+      </div>
+    </div>
+
+    <!-- // <v-tabs v-model="selectedTab" background-color="transparent" color="" grow>
+    //   <v-tab v-for="(tab, i) in tabs" :key="i">
+    //     {{ tab }}
+    //   </v-tab>
+    // </v-tabs>
+
+    // <v-tabs-items v-model="selectedTab">
+    //     <v-tab-item>
+    //     <h1>Favorite Books</h1>
+    //     <v-list dense>
+    //       <v-list-item
+    //         v-for="(book, i) in books"
+    //         :key="i + 'i'"
+    //         @click="goTo(book.url)"
+    //       >
+    //         <v-list-item-content>
+    //           <v-list-item-title> {{ book.name }}</v-list-item-title>
+    //           <v-list-item-subtitle>
+    //             Author: {{ book.name }}
+    //           </v-list-item-subtitle>
+    //           {{ book.description }}
+    //         </v-list-item-content>
+    //       </v-list-item>
+    //     </v-list>
+    //   </v-tab-item>
+    //   <v-tab-item>
+    //       <h1>Youtube Videos</h1>
+    //     <section id="feed">
+    //       <hof-feed>
+    //         <slot />
+    //       </hof-feed>
+    //     </section>
+    //   </v-tab-item>
+    //   <v-tab-item>
+    //     <h1>Interesting People</h1>
+    //     <v-list dense>
+    //       <v-list-item
+    //         v-for="(person, i) in peopleILike"
+    //         :key="i + 'i'"
+    //         @click="goTo(person.url)"
+    //       >
+    //         <v-list-item-content>
+    //           <v-list-item-title> {{ person.name }}</v-list-item-title>
+    //         </v-list-item-content>
+    //       </v-list-item>
+    //     </v-list>
+    //   </v-tab-item>
       
-    </v-tabs-items>
+    // </v-tabs-items> -->
   </v-card>
 </template>
 
@@ -60,6 +114,7 @@
 export default {
   name: 'Favorites',
   data: () => ({
+    currentTab: 'Books',
     tabs: ['Books', 'Youtube Videos', 'People'],
     selectedTab: null,
     peopleILike: [
@@ -140,6 +195,33 @@ export default {
     goTo(url) {
       window.open(url, '_blank')
     },
+    change(tab) {
+      console.log(tab)
+      this.currentTab = tab
+    },
   },
 }
 </script>
+<style scoped>
+.nav-tabs {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.content {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  border: 3px solid #ffa3a3;
+  border-radius: 2rem;
+  background: white;
+  font-size: 5rem;
+}
+.hide {
+  display: none;
+}
+.active{
+  background-color: blue;
+  color: pink
+}
+</style>
