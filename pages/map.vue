@@ -19,6 +19,8 @@ export default {
 <style>
 .iframe{
     height:90vh;
-    width:-webkit-fill-available;
+    width: -webkit-fill-available;
+    width: -moz-available;
+
 }
 </style>
