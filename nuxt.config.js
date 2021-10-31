@@ -19,7 +19,7 @@ export default {
         property: 'og:description',
         content: 'DJ and Nick talk about stuff on a podcast',
       },
-      { property: 'og:title', content: '9takes' },
+      { property: 'og:title', content: 'dj and nick podcast' },
       {
         name: 'twitter:description',
         content: 'DJ and Nick talk about stuff on a podcast',
