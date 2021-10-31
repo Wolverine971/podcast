@@ -62,13 +62,13 @@ export default {
 </script>
 <style scoped>
 .city {
-  background-image: url('/background.svg');
+  background-image: url('/optimizedBackground.svg');
   background-repeat: no-repeat;
   height: 100%;
   width: 100%;
 }
 .djFace {
-  background-image: url('/djFace.svg');
+  background-image: url('/optimizedFace.svg');
   background-repeat: no-repeat;
   height: 100%;
   width: 100%;
