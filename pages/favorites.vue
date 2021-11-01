@@ -4,8 +4,12 @@
       <h1 class="font-weight-bold text-h2">Favorites</h1>
     </v-card-title>
     <div class="nav nav-tabs">
-      <v-btn v-for="(tab, i) in tabs" :key="i" @click="change(tab)"
-      :color="currentTab === tab ? 'grey' : ''">
+      <v-btn
+        v-for="(tab, i) in tabs"
+        :key="i"
+        @click="change(tab)"
+        :color="currentTab === tab ? 'grey' : ''"
+      >
         {{ tab }}
       </v-btn>
     </div>
@@ -200,6 +204,48 @@ export default {
       this.currentTab = tab
     },
   },
+  head() {
+    return {
+      titleTemplate: "DJ's Favorite things",
+      title: "DJ's Favorite things",
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: "DJ's favorite books, people and Youtube videos",
+        },
+        {
+          property: 'og:url',
+          content: 'https://djandnicktalkaboutstuff.com/favorites',
+        },
+        {
+          property: 'og:description',
+          content: "DJ's favorite books, people and Youtube videos",
+        },
+        { property: 'og:title', content: "DJ's favorite things" },
+        {
+          name: 'twitter:description',
+          content: "DJ's favorite books, people and Youtube videos",
+        },
+        {
+          name: 'twitter:title',
+          content: "DJ's favorite things",
+        },
+        {
+          name: 'keywords',
+          content:
+            'DJ, Nick, talk, favorite, podcast, books, youtube videos, people, influencers',
+        },
+      ],
+      link: [
+        { rel: 'icon', hid: 'iconf', type: 'image/x-icon', href: '/star.png' },
+        {
+          rel: 'canonical',
+          href: 'https://djandnicktalkaboutstuff.com/favorites',
+        },
+      ],
+    }
+  },
 }
 </script>
 <style scoped>
@@ -220,8 +266,8 @@ export default {
 .hide {
   display: none;
 }
-.active{
+.active {
   background-color: blue;
-  color: pink
+  color: pink;
 }
 </style>
