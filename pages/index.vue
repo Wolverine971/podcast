@@ -60,8 +60,46 @@ export default {
   }),
 
   beforeMount() {
-    if(window && window.location){
+    if (window && window.location) {
       this.nick = window.location.href.includes('nickanddj')
+    }
+  },
+  head() {
+    return {
+      titleTemplate: "DJ and Nick's - podcast",
+      title: 'podcast',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'DJ and Nick talk about stuff on a podcast',
+        },
+        { property: 'og:url', content: 'https://djandnicktalkaboutstuff.com' },
+        {
+          property: 'og:description',
+          content: 'DJ and Nick talk about stuff on a podcast',
+        },
+        { property: 'og:title', content: 'dj and nick podcast' },
+        {
+          name: 'twitter:description',
+          content: 'DJ and Nick talk about stuff on a podcast',
+        },
+        {
+          name: 'twitter:title',
+          content: 'DJ and Nick talk about stuff on a podcast',
+        },
+        {
+          name: 'keywords',
+          content: 'DJ, Nick, talk, podcast',
+        },
+      ],
+      link: [
+        { rel: 'icon', hid: 'iconh', type: 'image/x-icon', href: '/account-multiple.png' },
+        {
+          rel: 'canonical',
+          href: 'https://djandnicktalkaboutstuff.com',
+        },
+      ],
     }
   },
 }

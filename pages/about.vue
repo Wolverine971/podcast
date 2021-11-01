@@ -346,6 +346,48 @@ export default {
       window.open(url, '_blank')
     },
   },
+  head() {
+    return {
+      titleTemplate: "About DJ",
+      title: "DJ's About Page",
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: "DJ's Resume",
+        },
+        {
+          property: 'og:url',
+          content: 'https://djandnicktalkaboutstuff.com/about',
+        },
+        {
+          property: 'og:description',
+          content: "DJ's Resume",
+        },
+        { property: 'og:title', content: "DJ's About Page" },
+        {
+          name: 'twitter:description',
+          content: "DJ's Resume",
+        },
+        {
+          name: 'twitter:title',
+          content: "DJ's About Page",
+        },
+        {
+          name: 'keywords',
+          content:
+            'DJ, jobs, career, poem, technology',
+        },
+      ],
+      link: [
+        { rel: 'icon', hid: 'icona', type: 'image/x-icon', href: '/information.png' },
+        {
+          rel: 'canonical',
+          href: 'https://djandnicktalkaboutstuff.com/about',
+        },
+      ],
+    }
+  },
 }
 </script>
 <style scoped>
