@@ -28,6 +28,7 @@ export default {
     // Disable for security reason on CodeSandBox
     liveEdit: true,
   },
+  serverMiddleware: [{ path: "/api", handler: "~/server-middleware/password.ts" },],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
 

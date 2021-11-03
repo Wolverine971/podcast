@@ -1,6 +1,7 @@
 <template>
   <v-container fluid grid-list-md>
-    <v-layout row wrap justify-center>
+    <password-protect />
+    <v-layout row wrap justify-center v-if="isAuthenticated">
       <!-- Left card -->
       <v-flex d-flex xs12 sm5 md4 lg4>
         <v-card class="pad_card">
@@ -155,6 +156,9 @@
 
 <script>
 export default {
+  components: {
+    PasswordProtect:()=> import('../components/passwordProtect.vue')
+  },
   data() {
     return {
       clipped: false,
@@ -186,7 +190,7 @@ export default {
       ],
       past_projects: [
         {
-          icon: '9',
+          url: './9.PNG',
           name: '9takes, site for personaliy enthusiasts',
           company: 'Side Project',
           color: '#f72585',
@@ -345,6 +349,11 @@ export default {
       //   window.location.replace(url)
       window.open(url, '_blank')
     },
+  },
+  computed: {
+    isAuthenticated(){
+      return this.$store.getters.authenticated
+    }
   },
   head() {
     return {
