@@ -1,6 +1,5 @@
 <template>
   <v-container>
-    <!-- <hof-card :size="6" :value="pod" /> -->
     <div class="iframe-placeholder"></div>
     <iframe
       width="100%"

@@ -1,5 +1,5 @@
 <template>
-  <v-card color="">
+  <v-card color="" class="d-flex flex-column align-center">
     <v-card-title class="text-center justify-center py-6">
       <h1 class="font-weight-bold text-h2">Favorites</h1>
     </v-card-title>
@@ -16,11 +16,12 @@
     <div id="tabs">
       <div title="Books" :class="currentTab === 'Books' ? '' : 'hide'">
         <h1>Favorite Books</h1>
-        <v-list dense>
+        <v-list dense class="book-list">
           <v-list-item
             v-for="(book, i) in books"
             :key="i + 'i'"
             @click="goTo(book.url)"
+            class="llist-item"
           >
             <v-list-item-content>
               <v-list-item-title> {{ book.name }}</v-list-item-title>
@@ -61,56 +62,6 @@
         </v-list>
       </div>
     </div>
-
-    <!-- // <v-tabs v-model="selectedTab" background-color="transparent" color="" grow>
-    //   <v-tab v-for="(tab, i) in tabs" :key="i">
-    //     {{ tab }}
-    //   </v-tab>
-    // </v-tabs>
-
-    // <v-tabs-items v-model="selectedTab">
-    //     <v-tab-item>
-    //     <h1>Favorite Books</h1>
-    //     <v-list dense>
-    //       <v-list-item
-    //         v-for="(book, i) in books"
-    //         :key="i + 'i'"
-    //         @click="goTo(book.url)"
-    //       >
-    //         <v-list-item-content>
-    //           <v-list-item-title> {{ book.name }}</v-list-item-title>
-    //           <v-list-item-subtitle>
-    //             Author: {{ book.name }}
-    //           </v-list-item-subtitle>
-    //           {{ book.description }}
-    //         </v-list-item-content>
-    //       </v-list-item>
-    //     </v-list>
-    //   </v-tab-item>
-    //   <v-tab-item>
-    //       <h1>Youtube Videos</h1>
-    //     <section id="feed">
-    //       <hof-feed>
-    //         <slot />
-    //       </hof-feed>
-    //     </section>
-    //   </v-tab-item>
-    //   <v-tab-item>
-    //     <h1>Interesting People</h1>
-    //     <v-list dense>
-    //       <v-list-item
-    //         v-for="(person, i) in peopleILike"
-    //         :key="i + 'i'"
-    //         @click="goTo(person.url)"
-    //       >
-    //         <v-list-item-content>
-    //           <v-list-item-title> {{ person.name }}</v-list-item-title>
-    //         </v-list-item-content>
-    //       </v-list-item>
-    //     </v-list>
-    //   </v-tab-item>
-      
-    // </v-tabs-items> -->
   </v-card>
 </template>
 
@@ -266,8 +217,15 @@ export default {
 .hide {
   display: none;
 }
-.active {
-  background-color: blue;
-  color: pink;
+
+.llist-item {
+  margin: auto;
+  width: 100%;
+}
+.book-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 </style>

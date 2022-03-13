@@ -46,6 +46,6 @@ export default {
 </script>
 <style scoped>
 .hover :hover{
-  background:#efebeb;
+  background:#5c5959;
 }
 </style>

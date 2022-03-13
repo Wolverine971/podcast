@@ -1,12 +1,14 @@
 <template>
   <div>
-    <blog-list />
-    <v-card>
-      <h1>{{ page.title }}</h1>
-      <h2>{{ page.description }}</h2>
+    <v-card elevation="2">
+      <v-card-title>{{ page.title }}</v-card-title>
+      <v-card-subtitle>{{ page.description }}</v-card-subtitle>
       <v-divider></v-divider>
-      <nuxt-content :document="page" />
+      <v-card-text>
+        <nuxt-content :document="page" />
+      </v-card-text>
     </v-card>
+    <blog-list />
   </div>
 </template>
 
@@ -14,10 +16,8 @@
 import BlogList from '~/components/blogList.vue'
 export default {
   components: { BlogList },
-  data () {
-    return {
-      // url: ''
-    }
+  data() {
+    return {}
   },
   async asyncData({ $content, params, error }) {
     const url = params.slug ? `/blog/${params.slug}` : 'index'
@@ -62,8 +62,7 @@ export default {
         },
         {
           name: 'keywords',
-          content:
-            'DJ, blog',
+          content: 'DJ, blog',
         },
       ],
       link: [
