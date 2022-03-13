@@ -4,34 +4,10 @@ description: Here we will explore how we are different and what the implications
 
 ---
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
-
-- [Spoiler Warning, We are Different](#spoiler-warning-we-are-different)
-- [People don't know or think about this](#people-dont-know-or-think-about-this)
-    - [If you chose 1- band with others](#if-you-chose-1--band-with-others)
-        - [How would others accept you? How would you make yourself indispensable?](#how-would-others-accept-you-how-would-you-make-yourself-indispensable)
-    - [If you chose 2- think and make plans](#if-you-chose-2--think-and-make-plans)
-        - [What would you think about? How would you go about making good plans?](#what-would-you-think-about-how-would-you-go-about-making-good-plans)
-    - [If you chose 3- act and become self-sufficient](#if-you-chose-3--act-and-become-self-sufficient)
-        - [How would you go about becoming self sufficient? What would you do first?](#how-would-you-go-about-becoming-self-sufficient-what-would-you-do-first)
-- [The Strategies Explained](#the-strategies-explained)
-    - ["Band together strategy"](#band-together-strategy)
-          - [Emotional Intelligence, Heart triad, dark emotion- Shame](#emotional-intelligence-heart-triad-dark-emotion--shame)
-    - ["Think and make plans strategy"](#think-and-make-plans-strategy)
-          - [Intellectual Intelligence, Head triad, dark emotion- Fear](#intellectual-intelligence-head-triad-dark-emotion--fear)
-    - ["Act and become self-sufficient strategy"](#act-and-become-self-sufficient-strategy)
-          - [Body Intelligence, Instinctual triad, dark emotion- Anger](#body-intelligence-instinctual-triad-dark-emotion--anger)
-- [One last thing to blow your mind](#one-last-thing-to-blow-your-mind)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-------
 
 # Spoiler Warning, We are Different
 
-Peter Thiel is a famous investor and intellectual icon and has this famous question he ask founders before he invests in them:
+Peter Thiel, a famous venture capitalist and to me an intellectual icon has this famous question he ask founders before he invests in them:
 > What important truth do very few people agree with you on?
 
 For me, I would say that I think most people think we are all superficially different but fundamentally the same, but the opposite is true. 

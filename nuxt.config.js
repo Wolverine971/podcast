@@ -8,7 +8,7 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { 'http-equiv': 'content-language', content: 'en' },
     ],
-    
+
   },
 
   env: {
@@ -16,7 +16,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: ['~/assets/main.scss',],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -31,6 +31,7 @@ export default {
   serverMiddleware: [{ path: "/api", handler: "~/server-middleware/password.ts" },],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
+  buildModules: ['nuxt-animejs'],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
@@ -40,11 +41,18 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     '@nuxt/content',
-    '@nuxtjs/vuetify',
+    '@nuxtjs/vuetify'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL: process.env.BE_URL || 'http://localhost:3000/', // `${process.env.BASE_URL}:3001/`,
+    headers: {
+      'Access-Control-Allow-Origin': [
+        process.env.BE_URL
+      ]
+    }
+  },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
@@ -56,9 +64,15 @@ export default {
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
+    defaultAssets: {
+      font: {
+        family: "Halvetica"
+      },
+      color: '#37434c'
+    },
+    treeShake: true,
     theme: {
-      // dark: true,
-      treeShake: true,
+      dark: true,
       themes: {
         dark: {
           primary: colors.blue.darken2,

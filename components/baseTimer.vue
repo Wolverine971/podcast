@@ -136,7 +136,7 @@ export default {
   }
 }
 .number {
-//   background: rgba(51, 51, 51, 0.53);
+  // background: rgba(51, 51, 51, 0.53);
   padding: 0 5px;
   border-radius: 5px;
   display: inline-block;
@@ -166,5 +166,4 @@ export default {
     background-color: silver;
   }
 }
-// }
 </style>
