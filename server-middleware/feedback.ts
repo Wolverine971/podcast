@@ -5,20 +5,20 @@ const isProd = process.env.NODE_ENV === 'production'
 
 const defaultConfig = isProd
   ? {
-      auth: {
-        apiKey: process.env.CURRI_ES_API_KEY ?? '',
-      },
-      cloud: {
-        id: process.env.CURRI_ES_CLUSTER_ID ?? '',
-      },
+    auth: {
+      apiKey: process.env.CURRI_ES_API_KEY ?? ''
+    },
+    cloud: {
+      id: process.env.CURRI_ES_CLUSTER_ID ?? ''
     }
+  }
   : {
-      node: 'http://localhost:9200',
-    }
+    node: 'http://localhost:9200'
+  }
 
 const esClient = new Client(defaultConfig)
 
-export async function sendAnonomousFeedBack(req: Request, res: Response) {
+export async function sendAnonomousFeedBack (req: Request, res: Response) {
   try {
     const { email, text, postId, response } = req.body
     const bodyData = {
@@ -30,9 +30,9 @@ export async function sendAnonomousFeedBack(req: Request, res: Response) {
         response: response ?? false,
         seen: false,
         modifiedDate: new Date(),
-        createdDate: new Date(),
+        createdDate: new Date()
       },
-      index: 'feedback',
+      index: 'feedback'
     }
 
     const esResponse = await esClient.index(bodyData)
@@ -48,7 +48,7 @@ export async function sendAnonomousFeedBack(req: Request, res: Response) {
   }
 }
 
-export async function seeFeedBack(req: Request, res: Response) {
+export async function seeFeedBack (req: Request, res: Response) {
   try {
     const { postId } = req.params
     const results: ApiResponse = await esClient.search({
@@ -56,19 +56,19 @@ export async function seeFeedBack(req: Request, res: Response) {
       body: {
         query: {
           match_phrase: {
-            postId: postId ?? '',
-          },
+            postId: postId ?? ''
+          }
         },
 
         size: 10,
         sort: [
           {
             createdDate: {
-              order: 'desc',
-            },
-          },
-        ],
-      },
+              order: 'desc'
+            }
+          }
+        ]
+      }
     })
     const collect: any[] = []
     let count = 0
@@ -88,15 +88,14 @@ export async function seeFeedBack(req: Request, res: Response) {
   }
 }
 
-
-export async function password(req: Request, res: Response) {
+export const password = (req: Request, res: Response) => {
   debugger
   const type = req.params.type
-  if(type === 'admin' && req.body.password === process.env.adminPassword){
-      res.json({ data: true })
-  } else if(!type && req.body.password === process.env.password){
+  if (type === 'admin' && req.body.password === process.env.adminPassword) {
     res.json({ data: true })
-  }else {
-      res.status(400)
+  } else if (!type && req.body.password === process.env.password) {
+    res.json({ data: true })
+  } else {
+    res.status(400)
   }
 }

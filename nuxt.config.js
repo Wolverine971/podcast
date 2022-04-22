@@ -29,8 +29,8 @@ export default {
         innerHTML: `
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', ${process.env.GOOGLE_ANAL});
+          gtag(${'js'}, new Date());
+          gtag(${'config'}, ${process.env.GOOGLE_ANAL});
         `
       }
     ]
@@ -73,8 +73,16 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     '@nuxt/content',
-    '@nuxtjs/toast'
+    '@nuxtjs/toast',
+    '@nuxtjs/proxy'
   ],
+
+  proxy: {
+    // see Proxy section
+    '/api': {
+      target: 'http://9takes.com:3008'
+    }
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
