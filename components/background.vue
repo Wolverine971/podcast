@@ -1,12 +1,12 @@
 <template>
   <svg
-    @click="startStop"
-    class="bottom-left"
     id="hs"
+    class="bottom-left background-svg"
     width="400"
     height="400"
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
+    @click="startStop"
   >
     <defs>
       <filter id="glow">
@@ -14,12 +14,12 @@
           class="blur"
           result="coloredBlur"
           stdDeviation="8"
-        ></feGaussianBlur>
+        />
         <feMerge>
-          <feMergeNode in="coloredBlur"></feMergeNode>
-          <feMergeNode in="coloredBlur"></feMergeNode>
-          <feMergeNode in="coloredBlur"></feMergeNode>
-          <feMergeNode in="SourceGraphic"></feMergeNode>
+          <feMergeNode in="coloredBlur" />
+          <feMergeNode in="coloredBlur" />
+          <feMergeNode in="coloredBlur" />
+          <feMergeNode in="SourceGraphic" />
         </feMerge>
       </filter>
 
@@ -56,7 +56,7 @@
     </defs>
 
     <g>
-      <g fill="#1a1b1f" id="svg_8">
+      <g id="svg_8" fill="#1a1b1f">
         <!-- <path
             class="p_0"
             stroke-width="1.5"
@@ -95,8 +95,8 @@
           transform="rotate(45)"
         />
         <image
-          class="p_0"
           id="svg_6"
+          class="p_0"
           width="390"
           height="540"
           href="/optimizedFace.svg"
@@ -112,22 +112,22 @@
 <script>
 export default {
   name: 'Background',
-  mounted() {
-    console.log('background')
-  },
   data: () => {
     return {
       animate: false,
       timeline: null,
       stroke_anim1: null,
       stroke_anim2: null,
-      rotate_stroke_anime: null,
+      rotate_stroke_anime: null
     }
   },
   computed: {},
+  mounted () {
+    this.init()
+  },
 
   methods: {
-    startStop() {
+    startStop () {
       this.animate = !this.animate
       if (this.animate) {
         this.randomValues()
@@ -135,9 +135,8 @@ export default {
         this.cancel(this.timeline)
       }
     },
-    randomValues() {
-      console.log('start')
-      let timeline = this.$anime.timeline({
+    randomValues () {
+      const timeline = this.$anime.timeline({
         duration: () => {
           return this.$anime.random(0, 270)
         },
@@ -145,30 +144,30 @@ export default {
         direction: 'alternate',
         easing: 'easeInOutQuint',
         autoplay: true,
-        loop: true,
+        loop: true
       })
       timeline.add({
         targets: ['feDisplacementMap'],
-        scale: [5, 30],
+        scale: [5, 30]
       })
       timeline.add({
         targets: ['#svg_8'],
         fill: ['#150485', '#590995', '#c62a88', '#03c4a1'],
         scale: [0.5, 1.05],
-        complete: this.randomValues,
+        complete: this.randomValues
       })
       this.timeline = timeline
     },
-    getTargets(ani) {
+    getTargets (ani) {
       return ani.children.reduce(
         (all, one) => all.concat(this.getTargets(one)),
-        ani.animatables.map((a) => a.target)
+        ani.animatables.map(a => a.target)
       )
     },
-    cancel(ani) {
+    cancel (ani) {
       this.getTargets(ani).forEach(this.$anime.remove)
     },
-    init() {
+    init () {
       this.stroke_anim1 = this.$anime({
         targets: ['#svg_12'],
         strokeDashoffset: [this.$anime.setDashoffset, 0],
@@ -176,16 +175,16 @@ export default {
           {
             value: [
               '88.5,80.45313l272.5,79.54688l-231,189l-41.5,-268.54688z',
-              '207.5,185.45313l156.5,-26.45313l,190l-44.5,-268.54687z',
-            ],
-          },
+              '207.5,185.45313l156.5,-26.45313l,190l-44.5,-268.54687z'
+            ]
+          }
         ],
         fill: ['#150485', '#590995', '#c62a88', '#03c4a1'],
         stroke: ['#f1e7b6', '#fe346e', '#400082', '#00bdaa'],
         easing: 'easeOutQuad',
         duration: 2000,
         autoplay: true,
-        loop: true,
+        loop: true
       })
 
       this.stroke_anim2 = this.$anime({
@@ -195,16 +194,16 @@ export default {
           {
             value: [
               '88.5,80.45313l272.5,79.54688l-231,189l-41.5,-268.54688z',
-              '207.5,185.45313l156.5,-26.45313l,190l-44.5,-268.54687z',
-            ],
-          },
+              '207.5,185.45313l156.5,-26.45313l,190l-44.5,-268.54687z'
+            ]
+          }
         ],
         stroke: ['#f1e7b6', '#fe346e', '#400082', '#00bdaa'],
         easing: 'easeOutQuad',
         delay: 1000,
         duration: 2000,
         autoplay: true,
-        loop: true,
+        loop: true
       })
 
       this.rotate_stroke_anime = this.$anime({
@@ -218,13 +217,10 @@ export default {
         autoplay: true,
         direction: 'normal',
         loop: true,
-        stroke: [0.3, 1],
+        stroke: [0.3, 1]
       })
-    },
-  },
-  mounted() {
-    this.init()
-  },
+    }
+  }
 }
 </script>
 
@@ -233,7 +229,7 @@ export default {
   transform-origin: center;
 }
 
-svg {
+.background-svg {
   position: absolute;
   top: 50%;
   left: 50%;

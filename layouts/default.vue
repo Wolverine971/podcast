@@ -5,10 +5,13 @@
       <v-container class="container">
         <nuxt />
       </v-container>
-      <Background />
+      <Background v-if="showFace" />
     </v-main>
     <v-footer :absolute="true" app>
       <span>&copy; {{ new Date().getFullYear() }}</span>
+      <v-btn class="face-btn" @click="showFace = !showFace">
+        {{ showFace ? 'Hide Face' : 'See Face' }}
+      </v-btn>
     </v-footer>
   </v-app>
 </template>
@@ -17,8 +20,13 @@
 export default {
   components: {
     Toolbar: () => import('../components/toolbar.vue'),
-    Background: () => import('../components/background.vue'),
+    Background: () => import('../components/background.vue')
   },
+  data: () => {
+    return {
+      showFace: false
+    }
+  }
 }
 </script>
 <style scoped>
@@ -37,5 +45,8 @@ export default {
 .container {
   max-width: 1085px;
 }
+.face-btn{
+  margin: 10px;
+  margin-left: auto
+}
 </style>
-

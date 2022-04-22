@@ -1,18 +1,18 @@
 <template>
-  <iframe :src="url" title="Burn Pit Map" class="iframe"></iframe>
+  <iframe :src="url" title="Burn Pit Map" class="iframe" />
 </template>
 
 <script>
 export default {
-  data() {
+  data () {
     return {
-      url: '',
+      url: ''
     }
   },
-  mounted() {
+  mounted () {
     this.url = `${process.env.MAP_URL}/map`
   },
-  head() {
+  head () {
     return {
       titleTemplate: 'Burnpit Map',
       title: 'Burnpit Map',
@@ -20,39 +20,39 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: 'Map of burnpit locations',
+          content: 'Map of burnpit locations'
         },
         {
           property: 'og:url',
-          content: 'https://djandnicktalkaboutstuff.com/map',
+          content: 'https://djandnicktalkaboutstuff.com/map'
         },
         {
           property: 'og:description',
-          content: 'Map of burnpit locations',
+          content: 'Map of burnpit locations'
         },
         { property: 'og:title', content: 'Burnpit Map' },
         {
           name: 'twitter:description',
-          content: 'Map of burnpit locations',
+          content: 'Map of burnpit locations'
         },
         {
           name: 'twitter:title',
-          content: 'Burnpit Map',
+          content: 'Burnpit Map'
         },
         {
           name: 'keywords',
-          content: 'burnpit, military, jon stewart, army, usmc, fire, polution',
-        },
+          content: 'burnpit, military, jon stewart, army, usmc, fire, polution'
+        }
       ],
       link: [
         { rel: 'icon', hid: 'iconm', type: 'image/x-icon', href: '/fire.png' },
         {
           rel: 'canonical',
-          href: 'https://djandnicktalkaboutstuff.com/map',
-        },
-      ],
+          href: 'https://djandnicktalkaboutstuff.com/map'
+        }
+      ]
     }
-  },
+  }
 }
 </script>
 

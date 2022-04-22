@@ -24,7 +24,27 @@ export const mutations = {
 }
 
 // ACTIONS
-export const actions: any = {}
+export const actions: any = {
+
+  toastSuccess ({ commit }: any, text: string) {
+    if (commit) {
+      this.$toast.success(text, {
+        theme: 'toasted-primary',
+        position: 'top-right',
+        duration: 3000
+      })
+    }
+  },
+  toastError ({ commit }: any, text: string, duration: number = 3000) {
+    if (commit) {
+      this.$toast.error(text, {
+        theme: 'toasted-primary',
+        position: 'top-right',
+        duration
+      })
+    }
+  },
+}
 
 const createStore = () =>
   new Vuex.Store({

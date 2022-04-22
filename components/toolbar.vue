@@ -15,7 +15,7 @@
         {{ link.name }}
       </v-tab>
     </v-tabs>
-    <v-menu transition="fab-transition" v-else>
+    <v-menu v-else transition="fab-transition">
       <template v-slot:activator="{ on: menu, attrs }">
         <v-btn
           color="secondary"
@@ -51,43 +51,43 @@
 <script>
 export default {
   name: 'Toolbar',
-  data() {
+  data () {
     return {
       links: [
         {
           name: 'Home',
           route: '/',
-          icon: 'mdi-account-multiple',
+          icon: 'mdi-account-multiple'
         },
         {
           name: 'Favorites ',
           route: '/favorites',
-          icon: 'mdi-star',
+          icon: 'mdi-star'
         },
         {
           name: 'Blog',
           route: '/blog',
-          icon: 'mdi-post',
+          icon: 'mdi-post'
         },
         {
           name: 'About Me',
           route: '/about',
-          icon: 'mdi-information',
+          icon: 'mdi-information'
         },
         {
           name: 'Burn Pit Map',
           route: '/map',
-          icon: 'mdi-fire',
-        },
+          icon: 'mdi-fire'
+        }
       ],
-      nick: false,
+      nick: false
     }
   },
-  beforeMount() {
+  beforeMount () {
     if (window && window.location) {
       this.nick = window.location.href.includes('nickanddj')
     }
-  },
+  }
 }
 </script>
 <style scoped>

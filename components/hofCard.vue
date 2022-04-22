@@ -10,7 +10,7 @@
       href="#!"
     >
       <v-img
-        :src="value.src ? `https://img.youtube.com/vi/${value.src}/maxresdefault.jpg` : ''" 
+        :src="value.src ? `https://img.youtube.com/vi/${value.src}/maxresdefault.jpg` : ''"
         height="100%"
         gradient="rgba(0, 0, 0, .42), rgba(0, 0, 0, .42)"
       >
@@ -40,7 +40,9 @@
           </v-col>
 
           <v-col align-self="end">
-              <v-btn small outlined link :href="`https://www.youtube.com/watch?v=${value.src}`" class="text-uppercase ma-0 twhite">Go To Video</v-btn>
+            <v-btn small outlined link :href="`https://www.youtube.com/watch?v=${value.src}`" class="text-uppercase ma-0 twhite">
+              Go To Video
+            </v-btn>
           </v-col>
         </v-row>
       </v-img>
@@ -49,20 +51,20 @@
 </template>
 
 <script>
-  export default {
-    name: 'hofCard',
+export default {
+  name: 'HofCard',
 
-    props: {
-      size: {
-        type: Number,
-        required: true,
-      },
-      value: {
-        type: Object,
-        default: () => ({}),
-      },
+  props: {
+    size: {
+      type: Number,
+      required: true
     },
+    value: {
+      type: Object,
+      default: () => ({})
+    }
   }
+}
 </script>
 
 <style>
