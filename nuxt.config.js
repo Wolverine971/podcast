@@ -73,16 +73,8 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     '@nuxt/content',
-    '@nuxtjs/toast',
-    '@nuxtjs/proxy'
+    '@nuxtjs/toast'
   ],
-
-  proxy: {
-    // see Proxy section
-    '/api': {
-      target: 'http://9takes.com:3008'
-    }
-  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {

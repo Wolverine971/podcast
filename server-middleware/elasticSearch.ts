@@ -1,25 +1,19 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/camelcase */
 import {
   ApiResponse,
-  Client,
+  Client
 } from '@elastic/elasticsearch'
-import { Request, Response } from "express";
+import { Request, Response } from 'express'
 import { IComment } from '~/models/esInterfaces'
 
 const isProd = process.env.NODE_ENV === 'production'
 
 const defaultConfig = isProd
   ? {
-    auth: {
-      apiKey: process.env.CURRI_ES_API_KEY ?? '',
-    },
-    cloud: {
-      id: process.env.CURRI_ES_CLUSTER_ID ?? '',
-    },
+    node: process.env.Elastic_END_POINT
   }
   : {
-    node: 'http://localhost:9200',
+    node: 'http://localhost:9200'
   }
 
 const esClient = new Client(defaultConfig)
@@ -28,7 +22,7 @@ export const create = async (
   req: Request, res: Response
 ) => {
   try {
-    let { type, parentId } = req.params
+    const { type, parentId } = req.params
     // /:type/:postId
     const body: IComment = req.body
     const bodyData = {
@@ -40,9 +34,9 @@ export const create = async (
         comments: 0,
         likes: 0,
         modifiedDate: new Date(),
-        createdDate: new Date(),
+        createdDate: new Date()
       },
-      index: 'comments',
+      index: 'comments'
     }
 
     await esClient.index(bodyData)
@@ -67,10 +61,10 @@ export const update = async (
         comments: 0,
         likes: 0,
         modifiedDate: new Date(),
-        createdDate: new Date(),
+        createdDate: new Date()
       },
       index: 'comments',
-      id: body.id ?? '',
+      id: body.id ?? ''
     }
 
     await esClient.update(bodyData)
@@ -91,7 +85,7 @@ export const meta = async (
       id: postId
     })
     const collect: any[] = []
-    let count = 0
+    const count = 0
     if (resp.statusCode === 200) {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const body: any = resp.body
@@ -105,13 +99,10 @@ export const meta = async (
       console.log('could not find post')
       return
     }
-
   } catch (error) {
     return res.json(error)
   }
 }
-
-
 
 // it uses the DriverSearchParameters to build an Elastic Search query
 export const find = async (
@@ -127,22 +118,22 @@ export const find = async (
             must: [
               {
                 match: {
-                  parentId: id ?? '',
-                },
-              },
-            ],
-          },
+                  parentId: id ?? ''
+                }
+              }
+            ]
+          }
         },
 
         size: 10,
         sort: [
           {
             createdDate: {
-              order: 'desc',
-            },
-          },
-        ],
-      },
+              order: 'desc'
+            }
+          }
+        ]
+      }
     })
     const collect: IComment[] = []
     let count = 0
@@ -162,12 +153,9 @@ export const find = async (
   }
 }
 
-
-export async function sendAnonomousFeedBack(req: Request, res: Response) {
-
-
+export async function sendAnonomousFeedBack (req: Request, res: Response) {
   try {
-    const { email, text, postId } = req.body;
+    const { email, text, postId } = req.body
     const bodyData = {
       body: {
         // authorId: req["payload"].userId,
@@ -176,9 +164,9 @@ export async function sendAnonomousFeedBack(req: Request, res: Response) {
         postId: postId ?? '',
         seen: false,
         modifiedDate: new Date(),
-        createdDate: new Date(),
+        createdDate: new Date()
       },
-      index: 'feedBack',
+      index: 'feedBack'
     }
 
     await esClient.index(bodyData)
@@ -187,7 +175,6 @@ export async function sendAnonomousFeedBack(req: Request, res: Response) {
     console.error('create comment failed with:', error)
     return res.send(false)
   }
-
 }
 // createIndex creates the elastic search index if it doesn't exist
 // can also be configured to preform a migration of the index to a new index if there are changes that need to be ported
@@ -202,27 +189,27 @@ export const createIndex = async (
         analyzer: {
           city_analyzer: {
             filter: ['lowercase', 'asciifolding'],
-            tokenizer: 'standard',
+            tokenizer: 'standard'
           },
           email_analyzer: {
-            tokenizer: 'email_tokenizer',
+            tokenizer: 'email_tokenizer'
           },
           phone_analyzer: {
             char_filter: ['digit_only'],
             filter: ['trim'],
-            tokenizer: 'phone_tokenizer',
+            tokenizer: 'phone_tokenizer'
           },
           street_analyzer: {
             filter: ['lowercase', 'asciifolding', 'synonym'],
-            tokenizer: 'standard',
-          },
+            tokenizer: 'standard'
+          }
         },
         char_filter: {
           digit_only: {
             pattern: '\\D+',
             replacement: '',
-            type: 'pattern_replace',
-          },
+            type: 'pattern_replace'
+          }
         },
         filter: {
           synonym: {
@@ -234,24 +221,24 @@ export const createIndex = async (
               'rte => route',
               'rd => road',
               'cv => cove',
-              'ct => court',
+              'ct => court'
             ],
-            type: 'synonym',
-          },
+            type: 'synonym'
+          }
         },
         tokenizer: {
           email_tokenizer: {
             tokenize_on_chars: ['@'],
-            type: 'char_group',
+            type: 'char_group'
           },
           phone_tokenizer: {
             token_chars: ['digit'],
             // min_gram: 1,
             // max_gram: 2,
-            type: 'ngram',
-          },
-        },
-      },
+            type: 'ngram'
+          }
+        }
+      }
     }
     const mappings = {
       properties: {
@@ -261,12 +248,12 @@ export const createIndex = async (
             city: {
               analyzer: 'city_analyzer',
               fields: { keyword: { type: 'keyword' } },
-              type: 'text',
+              type: 'text'
             },
             state: { type: 'keyword' },
             street: { analyzer: 'street_analyzer', type: 'text' },
-            zipcode: { type: 'keyword' },
-          },
+            zipcode: { type: 'keyword' }
+          }
         },
         background_check: { type: 'boolean' },
         banned: { type: 'boolean' },
@@ -274,7 +261,7 @@ export const createIndex = async (
         delivery_count: { type: 'integer' },
         email: {
           analyzer: 'email_analyzer',
-          type: 'text',
+          type: 'text'
         },
         external_id: { type: 'text' },
         id: { type: 'integer' },
@@ -290,8 +277,8 @@ export const createIndex = async (
             altitude: { type: 'double' },
             heading: { type: 'double' },
             speed: { type: 'double' },
-            tracking_activated: { type: 'boolean' },
-          },
+            tracking_activated: { type: 'boolean' }
+          }
         },
         name: { type: 'text' },
         note: { type: 'text' },
@@ -309,17 +296,17 @@ export const createIndex = async (
             max_tow: { type: 'integer' },
             model: { type: 'text' },
             trim: { type: 'text' },
-            year: { type: 'integer' },
-          },
-        },
-      },
+            year: { type: 'integer' }
+          }
+        }
+      }
     }
 
     const randomSuffix = (Math.random() + 1).toString(36).substring(7)
     const newIndexName = `${'ALIAS_NAME'}-${randomSuffix}`
     // fetch the current index
     const indexes: ApiResponse = await esClient.indices.get({
-      index: `${'ALIAS_NAME'}-*`,
+      index: `${'ALIAS_NAME'}-*`
     })
     const oldIndexName = Object.keys(indexes.body)[0]
     // if the index is not undefined, an index exists
@@ -334,31 +321,31 @@ export const createIndex = async (
     await esClient.indices.create({
       body: {
         mappings: { ...mappings },
-        settings: { ...settings },
+        settings: { ...settings }
       },
-      index: newIndexName,
+      index: newIndexName
     })
 
     // this is an existing index, so migrate
     if (isMigration) {
       // run migration
-      console.log(`Running migration`)
+      console.log('Running migration')
 
       if (indexExist) {
         console.log(`Deleting old index: ${oldIndexName}`)
         await esClient.indices.delete({
-          index: oldIndexName,
+          index: oldIndexName
         })
       }
     }
 
-    console.log(`updating alias`)
+    console.log('updating alias')
     await esClient.indices.putAlias({
       body: {
-        is_write_index: true,
+        is_write_index: true
       },
       index: newIndexName,
-      name: 'ALIAS_NAME',
+      name: 'ALIAS_NAME'
     })
 
     return Promise.resolve(true)
@@ -377,11 +364,11 @@ export const createDriver = (data: any) => {
     state: data.state,
     streetName: data.addressLine1,
     streetName2: data.addressLine2,
-    zipcode: data.postalCode,
+    zipcode: data.postalCode
   }
   const driver = {
     accessories: data.accessories,
-    address: address,
+    address,
     backgroundCheck: data.turnData?.state === 'BG_STATE_APPROVED',
     banned: data.banned,
     capabilities: data.capabilities,
@@ -401,7 +388,7 @@ export const createDriver = (data: any) => {
     reviewCount: data.reviewCount,
     thirdParty: data.thirdParty,
     vehicleType: data.vehicleType,
-    vehicles: data.vehicles ?? [],
+    vehicles: data.vehicles ?? []
   }
 
   return driver
