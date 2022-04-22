@@ -1,28 +1,38 @@
 <template>
-  <div class="timer" id="timer">
+  <div id="timer" class="timer">
     <div class="day">
       <span class="number">{{ days }}</span>
-      <div class="format">{{ wordString.day }}</div>
+      <div class="format">
+        {{ wordString.day }}
+      </div>
     </div>
     <div class="hour">
       <span class="number">{{ hours }}</span>
-      <div class="format">{{ wordString.hours }}</div>
+      <div class="format">
+        {{ wordString.hours }}
+      </div>
     </div>
     <div class="min">
       <span class="number">{{ minutes }}</span>
-      <div class="format">{{ wordString.minutes }}</div>
+      <div class="format">
+        {{ wordString.minutes }}
+      </div>
     </div>
     <div class="sec">
       <span class="number">{{ seconds }}</span>
-      <div class="format">{{ wordString.seconds }}</div>
+      <div class="format">
+        {{ wordString.seconds }}
+      </div>
     </div>
-    <div class="message">{{ message }}</div>
+    <div class="message">
+      {{ message }}
+    </div>
     <!-- <div class="status-tag" :class="statusType">{{ statusText }}</div> -->
   </div>
 </template>
 <script>
 export default {
-  data: function () {
+  data () {
     return {
       timer: '',
       wordString: {},
@@ -47,21 +57,20 @@ export default {
         status: {
           expired: 'Expired',
           running: 'Running',
-          upcoming: 'Future',
-        },
-      },
+          upcoming: 'Future'
+        }
+      }
     }
   },
-  created: function () {
+  created () {
     this.wordString = this.trans
   },
-  mounted() {
-    let launchDate = new Date()
+  mounted () {
+    const launchDate = new Date()
     launchDate.setMonth(4)
     launchDate.setDate(9)
     launchDate.setHours(0)
     launchDate.setMinutes(0)
-    console.log(launchDate.toUTCString())
     // this.TIME_LIMIT = Math.ceil((this.launchDate - Date.now()) / 100);
 
     this.start = Date.now()
@@ -73,20 +82,19 @@ export default {
     }, 1000)
   },
   methods: {
-    timerCount: function (start, end) {
+    timerCount (start, end) {
       // Get todays date and time
-      var now = new Date().getTime()
+      const now = new Date().getTime()
 
       // Find the distance between now an the count down date
-      var distance = start - now
-      var passTime = end - now
+      const distance = start - now
+      const passTime = end - now
 
       if (distance < 0 && passTime < 0) {
         this.message = this.wordString.expired
         this.statusType = 'expired'
         this.statusText = this.wordString.status.expired
         clearInterval(this.interval)
-        return
       } else if (distance < 0 && passTime > 0) {
         this.calcTime(passTime)
         this.message = this.wordString.running
@@ -99,14 +107,14 @@ export default {
         this.statusText = this.wordString.status.upcoming
       }
     },
-    calcTime: function (dist) {
+    calcTime (dist) {
       // Time calculations for days, hours, minutes and seconds
       this.days = Math.floor(dist / (1000 * 60 * 60 * 24))
       this.hours = Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
       this.minutes = Math.floor((dist % (1000 * 60 * 60)) / (1000 * 60))
       this.seconds = Math.floor((dist % (1000 * 60)) / 1000)
-    },
-  },
+    }
+  }
 }
 </script>
 <style scoped lang="scss">
