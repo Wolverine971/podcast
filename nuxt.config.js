@@ -24,23 +24,27 @@ export default {
       {
         async: true,
         defer: true,
-        charset: 'utf-8',
         type: 'text/javascript',
+        charset: 'utf-8',
+        hid: 'gtm-script2',
         innerHTML: `
+
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
-          gtag(${'js'}, new Date());
-          gtag(${'config'}, ${process.env.GOOGLE_ANAL});
+          gtag('js', new Date());
+          gtag('config', '${process.env.GOOGLE_ANAL}');
         `
       }
     ]
-
   },
 
   env: {
     MAP_URL: process.env.MAP_URL,
     GOOGLE_ANAL: process.env.GOOGLE_ANAL,
-    GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID
+    GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
+    NODE_ENV: process.env.NODE_ENV,
+    IS_PROD: process.env.IS_PROD,
+    ELASTIC_END_POINT: process.env.ELASTIC_END_POINT
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -50,9 +54,6 @@ export default {
   plugins: [
     // { src: '~/plugins/gtag.js', mode: 'client' }
   ],
-
-  // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
 
   content: {
     // Disable for security reason on CodeSandBox
@@ -65,7 +66,6 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-
     '@nuxtjs/vuetify',
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/axios
@@ -80,9 +80,7 @@ export default {
   axios: {
     baseURL: process.env.BE_URL || 'http://localhost:3000/', // `${process.env.BASE_URL}:3001/`,
     headers: {
-      'Access-Control-Allow-Origin': [
-        process.env.BE_URL
-      ]
+      'Access-Control-Allow-Origin': [process.env.BE_URL]
     }
   },
 

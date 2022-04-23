@@ -144,7 +144,7 @@ export default {
         this.parsePost(post)
       }
     },
-    likes (likes) {
+    likes () {
       // if (this.user) {
       // if (likes) {
       //   this.isLiked = likes.includes(this.user.id)
@@ -153,7 +153,7 @@ export default {
       // }
       // }
     },
-    subscribers (subs) {
+    subscribers () {
       // if (this.user) {
       // if (subs) {
       //   this.isSubscribed = subs.includes(this.user.id)

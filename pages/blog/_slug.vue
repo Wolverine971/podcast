@@ -22,7 +22,7 @@ export default {
     BlogList: () => import('~/components/blogList.vue'),
     Feedback: () => import('~/components/shared/feedback.vue')
   },
-  async asyncData ({ $content, params, error }) {
+  async asyncData ({ $content, params }) {
     const cleanUrl = params.slug ? `/blog/${params.slug.replaceAll('-', ' ')}` : 'index'
     const formattedUrl = `/blog/${params.slug}`
 

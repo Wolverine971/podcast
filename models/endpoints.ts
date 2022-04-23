@@ -15,6 +15,5 @@ export const endpoints = {
   getBlogs: '/api/blog/get',
   getBlog: '/api/blog/getOne',
 
-
   feedback: '/api/feedback'
 }
