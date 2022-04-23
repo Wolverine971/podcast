@@ -1,22 +1,7 @@
-import { ApiResponse, Client } from '@elastic/elasticsearch'
+import { ApiResponse } from '@elastic/elasticsearch'
 import { Request, Response } from 'express'
 
-const isProd = process.env.NODE_ENV === 'production'
-
-const defaultConfig = isProd
-  ? {
-    auth: {
-      apiKey: process.env.CURRI_ES_API_KEY ?? ''
-    },
-    cloud: {
-      id: process.env.CURRI_ES_CLUSTER_ID ?? ''
-    }
-  }
-  : {
-    node: 'http://localhost:9200'
-  }
-
-const esClient = new Client(defaultConfig)
+import { esClient } from './elasticSearch'
 
 export async function sendAnonomousFeedBack (req: Request, res: Response) {
   try {
@@ -48,7 +33,7 @@ export async function sendAnonomousFeedBack (req: Request, res: Response) {
   }
 }
 
-export async function seeFeedBack (req: Request, res: Response) {
+export const seeFeedBack = async (req: Request, res: Response) => {
   try {
     const { postId } = req.params
     const results: ApiResponse = await esClient.search({
@@ -59,7 +44,6 @@ export async function seeFeedBack (req: Request, res: Response) {
             postId: postId ?? ''
           }
         },
-
         size: 10,
         sort: [
           {
@@ -88,8 +72,21 @@ export async function seeFeedBack (req: Request, res: Response) {
   }
 }
 
+export const deleteFeedback = async (req: Request, res: Response) => {
+  try {
+    const { postId } = req.params
+    const deleteResp: ApiResponse = await esClient.delete({
+      index: 'feedback',
+      id: postId
+    })
+
+    return res.json({ deleteResp })
+  } catch (error) {
+    return res.json(error)
+  }
+}
+
 export const password = (req: Request, res: Response) => {
-  debugger
   const type = req.params.type
   if (type === 'admin' && req.body.password === process.env.adminPassword) {
     res.json({ data: true })

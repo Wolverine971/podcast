@@ -71,7 +71,7 @@
 export default {
   name: 'Favorites',
   components: {
-    Feed: () => import('@/components/hofFeed')
+    HofFeed: () => import('@/components/hofFeed')
   },
   data: () => ({
     currentTab: 'Books',

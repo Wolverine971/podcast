@@ -1,8 +1,12 @@
+
 <template>
   <div id="google-signin-button" />
 </template>
 
 <script>
+/* eslint-disable camelcase */
+/* eslint-disable no-undef */
+
 export default {
   mounted () {
     setTimeout(() => {
