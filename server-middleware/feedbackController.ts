@@ -88,7 +88,7 @@ export const deleteFeedback = async (req: Request, res: Response) => {
 
 export const password = (req: Request, res: Response) => {
   const type = req.params.type
-  if (type === 'admin' && req.body.password === process.env.adminPassword) {
+  if (type === 'admin' && req.body.password === process.env.ADMINPASSWORD) {
     res.json({ data: true })
   } else if (!type && req.body.password === process.env.password) {
     res.json({ data: true })
