@@ -341,19 +341,8 @@ export default {
           site: 'https://www.instagram.com/djwayne3/',
           color: '#833AB4'
         }
-      ],
-      peopleILike: [
-        { name: 'Naval' },
-        { name: 'Tim Ferris' },
-        { name: 'Peter Thiel' },
-        { name: 'Eric Weinstein' },
-        { name: 'Elon Musk' },
-        { name: 'Nassim Taleb' },
-        { name: 'Robert Greene' },
-        { name: 'Peter Zeihan' },
-        { name: 'James Altucher' },
-        { name: 'Josh Waitzkin' }
       ]
+
     }
   },
   computed: {

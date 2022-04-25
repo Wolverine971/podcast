@@ -55,7 +55,7 @@
           <v-list-item
             v-for="(person, i) in peopleILike"
             :key="i + 'i'"
-            @click="goTo(person.url)"
+            :to="`/people/${person.name.replaceAll(' ', '-')}`"
           >
             <v-list-item-content>
               <v-list-item-title> {{ person.name }}</v-list-item-title>
@@ -82,7 +82,7 @@ export default {
         name: 'Naval Ravikant',
         url: 'https://www.youtube.com/channel/UCh_dVD10YuSghle8g6yjePg'
       },
-      { name: 'Tim Ferris', url: 'https://tim.blog/' },
+      { name: 'Tim Ferriss', url: 'https://tim.blog/' },
       {
         name: 'Peter Thiel',
         url: 'https://www.youtube.com/watch?v=nM9f0W2KD5s'

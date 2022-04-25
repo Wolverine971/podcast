@@ -1,6 +1,6 @@
 <template>
   <v-card>
-    <h1>My Blog Posts</h1>
+    <h1>My Blog Posts and Musings</h1>
     <ul>
       <li v-for="(post, index) in blogList" :key="`post-${index}`">
         <h2>

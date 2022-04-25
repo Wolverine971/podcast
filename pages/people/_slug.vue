@@ -1,34 +1,78 @@
 <template>
-  <div>
-    <v-card elevation="2">
-      <v-card-title>{{ page.title }}</v-card-title>
-      <v-card-subtitle>{{ page.description }}</v-card-subtitle>
-      <v-divider />
-      <v-card-text>
-        <nuxt-content :document="page" />
-      </v-card-text>
-      <v-card-text>
-        <Feedback
-          :post="{ id: page.slug.replaceAll(' ', '-') }"
-          :type="'blog'"
-        />
-      </v-card-text>
-    </v-card>
-    <blog-list class="margin-top" />
-  </div>
+  <v-card elevation="2">
+    <v-card-title>{{ page.title }}</v-card-title>
+    <v-card-subtitle>{{ page.description }}</v-card-subtitle>
+    <div style="margin: 0 10px 10px 10px;">
+      <v-tooltip top>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            icon
+            v-bind="attrs"
+            outlined
+            small
+            @click="goTo(page.wikipedia)"
+            v-on="on"
+          >
+            <v-icon> mdi-wikipedia </v-icon>
+          </v-btn>
+        </template>
+        Wikipedia
+      </v-tooltip>
+
+      <v-tooltip top>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            icon
+            v-bind="attrs"
+            outlined
+            small
+            @click="goTo(page.twitter)"
+            v-on="on"
+          >
+            <v-icon> mdi-twitter </v-icon>
+          </v-btn>
+        </template>
+        Twitter
+      </v-tooltip>
+
+      <v-tooltip top>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            icon
+            v-bind="attrs"
+            outlined
+            small
+            @click="goTo(page.personalSite)"
+            v-on="on"
+          >
+            <v-icon> mdi-post </v-icon>
+          </v-btn>
+        </template>
+        Personal Site
+      </v-tooltip>
+    </div>
+
+    <!-- description: Smart guy, with great ideas and wisdom.
+meta points:
+wikipedia: https://en.wikipedia.org/wiki/Naval_Ravikant
+twitter: https://twitter.com/naval?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor
+personalSite: https://nav.al/ -->
+
+    <v-divider />
+    <v-card-text>
+      <nuxt-content :document="page" />
+    </v-card-text>
+  </v-card>
 </template>
 
 <script>
-import { endpoints } from '../../models/endpoints'
 export default {
   components: {
-    BlogList: () => import('~/components/blogList.vue'),
-    Feedback: () => import('~/components/shared/feedback.vue')
+    // BlogList: () => import('~/components/blogList.vue'),
+    // Feedback: () => import('~/components/shared/feedback.vue')
   },
   async asyncData ({ $content, params }) {
-    const cleanUrl = params.slug
-      ? `/blog/${params.slug.replaceAll('-', ' ')}`
-      : 'index'
+    const cleanUrl = `/people/${params.slug.replaceAll('-', ' ')}`
     const formattedUrl = `/blog/${params.slug}`
 
     const page = await $content(cleanUrl)
@@ -36,7 +80,6 @@ export default {
       .catch((err) => {
         console.error('Page not found', err)
       })
-
     return {
       cleanUrl,
       page,
@@ -44,34 +87,13 @@ export default {
     }
   },
   data () {
-    return {
-      commentsLoading: false,
-      comments: { comments: [], count: 0 }
-    }
+    return {}
   },
-  mounted () {
-    this.getComments()
-  },
+  mounted () {},
 
   methods: {
-    async getComments () {
-      this.commentsLoading = true
-      try {
-        const resp = await this.$axios.get(
-          `${endpoints.getComments}/${this.page.slug}`
-        )
-        if (resp && resp.data && resp.data.comments) {
-          if (resp.data.comments.length) {
-            this.params = { ...event }
-            this.params.skip = 10
-          }
-
-          this.comments = resp.data
-        }
-      } catch (e) {
-        console.log(e)
-      }
-      this.commentsLoading = false
+    goTo (url) {
+      window.open(url, '_blank')
     }
   },
 
@@ -101,10 +123,6 @@ export default {
         {
           name: 'twitter:title',
           content: this.page.title
-        },
-        {
-          name: 'keywords',
-          content: 'DJ, blog'
         }
       ],
       link: [
@@ -118,6 +136,7 @@ export default {
   }
 }
 </script>
+
 <style>
 blockquote {
   border: 1px solid #ebecb2;
@@ -143,7 +162,6 @@ h5 {
   display: inline-flex;
   justify-content: flex-start;
   align-items: center;
-  color: aquamarine;
 }
 .icon.icon-link {
   background-image: url('~assets/svg/pound-box.svg');

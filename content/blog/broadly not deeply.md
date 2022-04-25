@@ -3,6 +3,8 @@ title: Broadly Not Deeply
 description: We no longer see deeply, we see broadly
 ---
 
+***** This blog is not finished, I have rewrote it many times and am still working on it  *****
+
 ## We can see broadly but not deeply. 
 
 #### Intro and implications
