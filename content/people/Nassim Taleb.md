@@ -8,7 +8,7 @@ personalSite: https://www.fooledbyrandomness.com/
 
 ---
 
-Wrote the INCERTO.
+Wrote the INCERTO. Incerto means uncertainty or doubt in Latin.
 It is made up of 5 books of which I have read 2,"Antifragile" and "Skin in the Game." These are fascinating books. Antifragile talks about how great strength and resiliency comes from many trials and errors. Someone who is fragile is someone who hasnt tried a bunch of things and is scared of failure, because one failure could ruin them. Someone who is Antifragile is someone who has tried and failed many times and grows stronger and wiser with each trial they face.
 
 
@@ -29,6 +29,8 @@ More on the Incerto, according to Amazon:
 
 [Genealogy of the Incerto](https://www.fooledbyrandomness.com/genealogy.jpg)
 The above image doesn't help explain the Incerto but gives context to the topics mentioned in the series
+
+Beware of black swan events. Seems statistically impossible, but happen more often than you think. If we look at the past to try to predict the future we will be 90% right but there is always a chance that something unprecendented happens. A black swan is an unpredictable event that is beyond what is normally expected of a situation and has potentially severe consequences. Some examples are the rise of the Internet, the personal computer, World War I, the dissolution of the Soviet Union and the September 11, 2001 terrorist attacks.
 
 Other:
 [How to Profit from Chaos: Antifragile by Nassim Taleb](https://www.youtube.com/watch?v=zFxsklkk4YM)
