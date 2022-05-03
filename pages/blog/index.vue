@@ -51,11 +51,8 @@ export default {
         {
           name: 'twitter:title',
           content: "DJ's blog"
-        },
-        {
-          name: 'keywords',
-          content: 'DJ, blog'
         }
+
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/post.png' },

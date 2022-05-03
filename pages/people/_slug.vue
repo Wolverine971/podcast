@@ -96,6 +96,32 @@ export default {
       window.open(url, '_blank')
     }
   },
+  jsonld () {
+    const pages = []
+    if (this.page.wikipedia) {
+      pages.push(this.page.wikipedia)
+    }
+    if (this.page.twitter) {
+      pages.push(this.page.twitter)
+    }
+    if (this.page.personalSite) {
+      pages.push(this.page.personalSite)
+    }
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      name: this.page.title,
+      url: `https://djandnicktalkaboutstuff.com${this.formattedUrl}`,
+      description: this.page.description,
+      sameAs: [
+        ...pages
+      ],
+      publisher: {
+        '@type': 'Person',
+        name: 'DJ Wayne'
+      }
+    }
+  },
 
   head () {
     return {

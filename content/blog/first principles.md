@@ -1,6 +1,6 @@
 ---
-title: First Princliples Explained
-description: I Don't Remember where I got this
+title: First Principles Explained
+description: When trying to reason about something think in terms of first principles, what are the basic truths?
 
 ---
 

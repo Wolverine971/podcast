@@ -64,6 +64,23 @@ export default {
       this.nick = window.location.href.includes('nickanddj')
     }
   },
+  jsonld () {
+    const pages = [this.nick ? 'https://djandnicktalkaboutstuff.com' : 'https://nickanddjtalkaboutstuff.com/']
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      name: 'DJ and Nick Podcast',
+      url: this.nick ? 'https://nickanddjtalkaboutstuff.com/' : 'https://djandnicktalkaboutstuff.com',
+      description: 'DJ and Nick talk about stuff on a podcast',
+      sameAs: [
+        ...pages
+      ],
+      publisher: {
+        '@type': 'Person',
+        name: 'DJ Wayne'
+      }
+    }
+  },
   head () {
     return {
       titleTemplate: "DJ and Nick's - podcast",
@@ -87,10 +104,6 @@ export default {
         {
           name: 'twitter:title',
           content: 'DJ and Nick talk about stuff on a podcast'
-        },
-        {
-          name: 'keywords',
-          content: 'DJ, Nick, talk, podcast'
         }
       ],
       link: [

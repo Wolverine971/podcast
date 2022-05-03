@@ -10,10 +10,6 @@ personalSite: https://jamesaltucher.com/
 
 Wrote a bunch of books, but I really liked "Skip the Line" 
 
-I liked it so much I tried to capture the main ideas in a note book
-<!-- ![image alt text](~/assets/img/skipTheLine.jpg) -->
-<img-cont src="img/skipTheLine.jpg" alt="Skip The Line Notes" />
-
 Ideas mentioned:
 - Microskills- There is no skill of business. The skill of Business is composed of many subskills or microskills. Negotiation, sales, accounting, brainstorming, researching, managing, public speaking and so on. Being good at business means you are good at a bunch of microskills.
 - Plus Minus Equals- Who do you look up to, who are your peers or competitors, and who are the people you are helping or mentoring.
@@ -24,3 +20,9 @@ Ideas mentioned:
 - Find the conspiracy number- How many things have to go right for your idea to succeed.
 - Spoke and wheel- In business, what ideas play off each other? What is the main idea that a bunch of sub ideas can spawn off of?
 - The incerto technique- Its about dealing with uncertainty and managing risk, learn about the premisce of each of the books in The Incerto- by Nassim Taleb
+
+I liked it so much I tried to capture the main ideas in a note book
+<!-- ![image alt text](~/assets/img/skipTheLine.jpg) -->
+<img-cont src="img/skipTheLine.jpg" alt="Skip The Line Notes" />
+
+

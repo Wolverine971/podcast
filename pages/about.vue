@@ -382,11 +382,6 @@ export default {
         {
           name: 'twitter:title',
           content: "DJ's About Page"
-        },
-        {
-          name: 'keywords',
-          content:
-            'DJ, jobs, career, poem, technology'
         }
       ],
       link: [

@@ -74,6 +74,19 @@ export default {
       this.commentsLoading = false
     }
   },
+  jsonld () {
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'Blog',
+      name: this.page.title,
+      url: `https://djandnicktalkaboutstuff.com${this.formattedUrl}`,
+      description: this.page.description,
+      publisher: {
+        '@type': 'Person',
+        name: 'DJ Wayne'
+      }
+    }
+  },
 
   head () {
     return {
@@ -101,10 +114,6 @@ export default {
         {
           name: 'twitter:title',
           content: this.page.title
-        },
-        {
-          name: 'keywords',
-          content: 'DJ, blog'
         }
       ],
       link: [
