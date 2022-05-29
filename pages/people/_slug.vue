@@ -3,7 +3,7 @@
     <v-card-title>{{ page.title }}</v-card-title>
     <v-card-subtitle>{{ page.description }}</v-card-subtitle>
     <div style="margin: 0 10px 10px 10px;">
-      <v-tooltip top>
+      <v-tooltip v-if="page.wikipedia" top>
         <template v-slot:activator="{ on, attrs }">
           <v-btn
             icon
@@ -19,7 +19,7 @@
         Wikipedia
       </v-tooltip>
 
-      <v-tooltip top>
+      <v-tooltip v-if="page.twitter" top>
         <template v-slot:activator="{ on, attrs }">
           <v-btn
             icon
@@ -35,7 +35,7 @@
         Twitter
       </v-tooltip>
 
-      <v-tooltip top>
+      <v-tooltip v-if="page.personalSite" top>
         <template v-slot:activator="{ on, attrs }">
           <v-btn
             icon

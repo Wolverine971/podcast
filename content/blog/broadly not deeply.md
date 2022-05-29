@@ -8,7 +8,8 @@ description: We no longer see deeply, we see broadly
 ## We can see broadly but not deeply. 
 
 #### Intro and implications
-What does it mean for a community or a society when most of our relationships are superficial? How did we get here and what mechanisms shape our behavior. What are the effects, what can be done to change the mechanism change our future? All this and more to follow.
+When most of our relationships feel superficial what should we do? 
+We are the most advanced humans to ever exist with   How does this happen? What or whom is to blame? What mechanisms shaped or allowed this to happen. What does this say about the future and what can be done about it? All this and more to follow.
 
 Being able to see broadly and not deeply manifests is evident when you scan technology. We are constantly connected via our phones and the ever present internet. With your phone you can contact via call text or email anyone you know, and some people you don't. Like wise, people you know and don't know are constantly trying to contact you. We could contact anyone we know and ask them how their day was, yet we might checkup on only a handful of people every week. How many people try to check in with us, every week or month... other than your mom. No one other than maybe your mom cares deeply about what you are thinking, feeling, or what you did. 
 
