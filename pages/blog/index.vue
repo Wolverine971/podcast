@@ -1,6 +1,7 @@
 <template>
   <v-card>
     <h1>My Blog Posts and Musings</h1>
+    <!-- <dj-combo /> -->
     <ul>
       <li v-for="(post, index) in blogList" :key="`post-${index}`">
         <h2>
@@ -19,6 +20,9 @@
 
 <script>
 export default {
+  components: {
+    // DjCombo: () => import('~/components/djCombo.vue')
+  },
   async asyncData ({ $content }) {
     const blogList = await $content('blog').fetch()
     return {

@@ -6,7 +6,7 @@ wikipedia: https://en.wikipedia.org/wiki/Peter_Thiel
 ---
 
 Musings about the bible
-[Source]([[https://www.youtube.com/watch?v=yY2EUl_3ncA]])
+<iframe width="560" height="315" src="https://www.youtube.com/embed/yY2EUl_3ncA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Romulus and Remus the story of the founding of Rome
 Romulus kill Remus to form Rome and that's just how it is, Romulus is the victor

@@ -34,3 +34,4 @@ Beware of black swan events. Seems statistically impossible, but happen more oft
 
 Other:
 [How to Profit from Chaos: Antifragile by Nassim Taleb](https://www.youtube.com/watch?v=zFxsklkk4YM)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zFxsklkk4YM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

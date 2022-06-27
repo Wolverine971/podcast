@@ -109,7 +109,8 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     '@nuxt/content',
-    '@nuxtjs/toast'
+    '@nuxtjs/toast',
+    '@nuxtjs/sitemap'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

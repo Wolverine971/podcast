@@ -14,7 +14,9 @@ TicTok is about authenticity
 - [Andrew Hutchinson says](https://www.socialmediatoday.com/news/tiktok-shares-new-insights-into-why-people-use-the-app-and-how-it-celebrat/608617/)
 
 ##  Create any picture- using AI
-- - [Marques Brownlee uses DALL-E 2](https://www.youtube.com/watch?v=yCBEumeXY4A)
+
+- <iframe width="560" height="315" src="https://www.youtube.com/embed/yCBEumeXY4A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+- [Marques Brownlee uses DALL-E 2](https://www.youtube.com/watch?v=yCBEumeXY4A)
 ## Create any story- using AI
 - - [Jasper AI](https://www.jasper.ai/)
 

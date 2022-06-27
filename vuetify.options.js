@@ -4,7 +4,7 @@ export default {
   customVariables: ['~/assets/variables.scss'],
   defaultAssets: {
     font: {
-      family: 'Halvetica'
+      family: 'Helvetica'
     },
     color: '#37434c'
   },

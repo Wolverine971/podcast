@@ -38,7 +38,8 @@
     "express": "^4.17.1",
     "googleapis": "^100.0.0",
     "nuxt": "^2.13.3",
-    "nuxt-jsonld": "^1.5.3"
+    "nuxt-jsonld": "^1.5.3",
+    "sass": "~1.32.6"
   },
   "devDependencies": {
     "@nuxt/types": "^2.15.3",

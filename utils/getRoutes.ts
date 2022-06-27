@@ -5,7 +5,7 @@ export default async () => {
     .fetch()
   return files.map((file: any) => {
     return {
-      url: 'blog/' + file.path.replace('index', ''),
+      url: file.path.replace(' ', '-'),
       lastmod: Date.parse(file.updatedAt)
     }
   })
