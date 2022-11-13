@@ -15,7 +15,7 @@
         <nuxt-content v-else :document="{ body: post.excerpt }" />
       </li>
     </ul>
-    <br />
+    <br>
     <h1>Military</h1>
     <ul>
       <li v-for="(post, index) in militaryList" :key="`post-${index}`">
@@ -38,15 +38,15 @@ export default {
   components: {
     // DjCombo: () => import('~/components/djCombo.vue')
   },
-  async asyncData({ $content }) {
+  async asyncData ({ $content }) {
     const blogList = await $content('blog').fetch()
     const militaryList = await $content('military').fetch()
     return {
       blogList,
-      militaryList,
+      militaryList
     }
   },
-  head() {
+  head () {
     return {
       titleTemplate: "DJ's blog",
       title: "DJ's blog",
@@ -54,35 +54,35 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: 'DJ blogs about stuff here',
+          content: 'DJ blogs about stuff here'
         },
         {
           property: 'og:url',
-          content: 'https://djandnicktalkaboutstuff.com/blog',
+          content: 'https://djandnicktalkaboutstuff.com/blog'
         },
         {
           property: 'og:description',
-          content: 'DJ blogs about stuff here',
+          content: 'DJ blogs about stuff here'
         },
         { property: 'og:title', content: "DJ's blog" },
         {
           name: 'twitter:description',
-          content: 'DJ blogs about stuff here',
+          content: 'DJ blogs about stuff here'
         },
         {
           name: 'twitter:title',
-          content: "DJ's blog",
-        },
+          content: "DJ's blog"
+        }
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/post.png' },
         {
           rel: 'canonical',
-          href: 'https://djandnicktalkaboutstuff.com/blog',
-        },
-      ],
+          href: 'https://djandnicktalkaboutstuff.com/blog'
+        }
+      ]
     }
-  },
+  }
 }
 </script>
 

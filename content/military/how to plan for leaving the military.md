@@ -1,5 +1,5 @@
 ---
-title: How to plan for leaving military
+title: How to plan for leaving the military
 description: What I would have done, if I had to do it over again
 
 ---

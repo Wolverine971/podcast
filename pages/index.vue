@@ -47,14 +47,14 @@
                       frameborder="0"
                       allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowfullscreen
-                    ></iframe>
+                    />
                   </div>
                 </v-row>
               </v-sheet>
             </v-carousel-item>
           </v-carousel>
 
-          <hr class="my-3" />
+          <hr class="my-3">
           <div v-show="nick">
             <q>Up up and away!</q>
             <cite>&mdash; Nick</cite>
@@ -63,7 +63,7 @@
             <q>You dont know until you try</q>
             <cite>&mdash; DJ</cite>
           </div>
-          <hr class="my-3" />
+          <hr class="my-3">
           <h1>Podcast</h1>
           <p>The topics we are going to be covering are:</p>
           <ul>
@@ -87,20 +87,20 @@ export default {
       'https://youtube.com/embed/4faV3nzeoGU',
       'https://youtube.com/embed/y9fLVSJFR9g',
       'https://youtube.com/embed/MYhJZhhXjOg',
-      'https://youtube.com/embed/SkiRdBE1Dnk',
-    ],
+      'https://youtube.com/embed/SkiRdBE1Dnk'
+    ]
   }),
 
-  beforeMount() {
+  beforeMount () {
     if (window && window.location) {
       this.nick = window.location.href.includes('nickanddj')
     }
   },
-  jsonld() {
+  jsonld () {
     const pages = [
       this.nick
         ? 'https://djandnicktalkaboutstuff.com'
-        : 'https://nickanddjtalkaboutstuff.com/',
+        : 'https://nickanddjtalkaboutstuff.com/'
     ]
     return {
       '@context': 'https://schema.org',
@@ -113,11 +113,11 @@ export default {
       sameAs: [...pages],
       publisher: {
         '@type': 'Person',
-        name: 'DJ Wayne',
-      },
+        name: 'DJ Wayne'
+      }
     }
   },
-  head() {
+  head () {
     return {
       titleTemplate: "DJ and Nick's - podcast",
       title: 'podcast',
@@ -125,37 +125,37 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: 'DJ and Nick talk about stuff on a podcast',
+          content: 'DJ and Nick talk about stuff on a podcast'
         },
         { property: 'og:url', content: 'https://djandnicktalkaboutstuff.com' },
         {
           property: 'og:description',
-          content: 'DJ and Nick talk about stuff on a podcast',
+          content: 'DJ and Nick talk about stuff on a podcast'
         },
         { property: 'og:title', content: 'dj and nick podcast' },
         {
           name: 'twitter:description',
-          content: 'DJ and Nick talk about stuff on a podcast',
+          content: 'DJ and Nick talk about stuff on a podcast'
         },
         {
           name: 'twitter:title',
-          content: 'DJ and Nick talk about stuff on a podcast',
-        },
+          content: 'DJ and Nick talk about stuff on a podcast'
+        }
       ],
       link: [
         {
           rel: 'icon',
           hid: 'iconh',
           type: 'image/x-icon',
-          href: '/account-multiple.png',
+          href: '/account-multiple.png'
         },
         {
           rel: 'canonical',
-          href: 'https://djandnicktalkaboutstuff.com',
-        },
-      ],
+          href: 'https://djandnicktalkaboutstuff.com'
+        }
+      ]
     }
-  },
+  }
 }
 </script>
 <style scoped>

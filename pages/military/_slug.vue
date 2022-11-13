@@ -23,9 +23,9 @@ import { endpoints } from '../../models/endpoints'
 export default {
   components: {
     BlogList: () => import('~/components/blogList.vue'),
-    Feedback: () => import('~/components/shared/feedback.vue'),
+    Feedback: () => import('~/components/shared/feedback.vue')
   },
-  async asyncData({ $content, params }) {
+  async asyncData ({ $content, params }) {
     const cleanUrl = params.slug
       ? `/military/${params.slug.replaceAll('-', ' ')}`
       : 'index'
@@ -40,21 +40,21 @@ export default {
     return {
       cleanUrl,
       page,
-      formattedUrl,
+      formattedUrl
     }
   },
-  data() {
+  data () {
     return {
       commentsLoading: false,
-      comments: { comments: [], count: 0 },
+      comments: { comments: [], count: 0 }
     }
   },
-  mounted() {
+  mounted () {
     this.getComments()
   },
 
   methods: {
-    async getComments() {
+    async getComments () {
       this.commentsLoading = true
       try {
         const resp = await this.$axios.get(
@@ -72,9 +72,9 @@ export default {
         console.log(e)
       }
       this.commentsLoading = false
-    },
+    }
   },
-  jsonld() {
+  jsonld () {
     return {
       '@context': 'https://schema.org',
       '@type': 'Blog',
@@ -83,12 +83,12 @@ export default {
       description: this.page.description,
       publisher: {
         '@type': 'Person',
-        name: 'DJ Wayne',
-      },
+        name: 'DJ Wayne'
+      }
     }
   },
 
-  head() {
+  head () {
     return {
       titleTemplate: this.page.title,
       title: this.page.title,
@@ -96,35 +96,35 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: this.page.description,
+          content: this.page.description
         },
         {
           property: 'og:url',
-          content: `https://djandnicktalkaboutstuff.com${this.formattedUrl}`,
+          content: `https://djandnicktalkaboutstuff.com${this.formattedUrl}`
         },
         {
           property: 'og:description',
-          content: this.page.description,
+          content: this.page.description
         },
         { property: 'og:title', content: this.page.title },
         {
           name: 'twitter:description',
-          content: this.page.description,
+          content: this.page.description
         },
         {
           name: 'twitter:title',
-          content: this.page.title,
-        },
+          content: this.page.title
+        }
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/post.png' },
         {
           rel: 'canonical',
-          href: `https://djandnicktalkaboutstuff.com${this.formattedUrl}`,
-        },
-      ],
+          href: `https://djandnicktalkaboutstuff.com${this.formattedUrl}`
+        }
+      ]
     }
-  },
+  }
 }
 </script>
 <style>

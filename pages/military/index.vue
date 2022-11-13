@@ -22,13 +22,13 @@ export default {
   components: {
     // DjCombo: () => import('~/components/djCombo.vue')
   },
-  async asyncData({ $content }) {
+  async asyncData ({ $content }) {
     const militaryList = await $content('military').fetch()
     return {
-      militaryList,
+      militaryList
     }
   },
-  head() {
+  head () {
     return {
       titleTemplate: "DJ's blog",
       title: "DJ's blog",
@@ -36,35 +36,35 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: 'DJ blogs about military stuff here',
+          content: 'DJ blogs about military stuff here'
         },
         {
           property: 'og:url',
-          content: 'https://djandnicktalkaboutstuff.com/blog',
+          content: 'https://djandnicktalkaboutstuff.com/blog'
         },
         {
           property: 'og:description',
-          content: 'DJ blogs about military stuff here',
+          content: 'DJ blogs about military stuff here'
         },
         { property: 'og:title', content: "DJ's blog" },
         {
           name: 'twitter:description',
-          content: 'DJ blogs about military stuff here',
+          content: 'DJ blogs about military stuff here'
         },
         {
           name: 'twitter:title',
-          content: "DJ's blog",
-        },
+          content: "DJ's blog"
+        }
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/post.png' },
         {
           rel: 'canonical',
-          href: 'https://djandnicktalkaboutstuff.com/blog',
-        },
-      ],
+          href: 'https://djandnicktalkaboutstuff.com/blog'
+        }
+      ]
     }
-  },
+  }
 }
 </script>
 
