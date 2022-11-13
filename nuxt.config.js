@@ -35,8 +35,7 @@ export default {
   plugins: [
     // { src: '~/plugins/gtag.js', mode: 'client' }
     { src: '~/plugins/jsonLd.ts', mode: 'client' },
-
-    { src: '~/plugins/gtag.js', mode: 'client' },
+    { src: '~/plugins/gtag.ts', mode: 'client' },
   ],
   components: true,
 
