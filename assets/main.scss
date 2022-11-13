@@ -22,7 +22,7 @@ html {
   color: #37434c !important;
 }
 
-iframe{
+iframe {
   display: flex;
   margin: auto;
 }
@@ -31,3 +31,7 @@ iframe{
 //   content-visibility: auto;
 //   contain-intrinsic-size: 1px 5000px;
 // }
+
+body {
+  font-size: larger;
+}
