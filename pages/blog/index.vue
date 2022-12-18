@@ -30,6 +30,36 @@
         <nuxt-content v-else :document="{ body: post.excerpt }" />
       </li>
     </ul>
+    <br>
+    <h1>Tech</h1>
+    <ul>
+      <li v-for="(post, index) in techList" :key="`post-${index}`">
+        <h2>
+          <nuxt-link :to="post.path.replaceAll(' ', '-')">
+            {{ post.title }}
+          </nuxt-link>
+        </h2>
+        <p v-if="post.description">
+          {{ post.description }}
+        </p>
+        <nuxt-content v-else :document="{ body: post.excerpt }" />
+      </li>
+    </ul>
+    <br>
+    <h1>People</h1>
+    <ul>
+      <li v-for="(post, index) in peopleList" :key="`post-${index}`">
+        <h2>
+          <nuxt-link :to="post.path.replaceAll(' ', '-')">
+            {{ post.title }}
+          </nuxt-link>
+        </h2>
+        <p v-if="post.description">
+          {{ post.description }}
+        </p>
+        <nuxt-content v-else :document="{ body: post.excerpt }" />
+      </li>
+    </ul>
   </v-card>
 </template>
 
@@ -41,9 +71,15 @@ export default {
   async asyncData ({ $content }) {
     const blogList = await $content('blog').fetch()
     const militaryList = await $content('military').fetch()
+
+    const peopleList = await $content('people').fetch()
+
+    const techList = await $content('tech').fetch()
     return {
       blogList,
-      militaryList
+      militaryList,
+      peopleList,
+      techList
     }
   },
   head () {

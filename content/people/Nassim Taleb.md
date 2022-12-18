@@ -7,6 +7,9 @@ twitter: https://twitter.com/nntaleb
 personalSite: https://www.fooledbyrandomness.com/
 
 ---
+# Who is Nassim Taleb
+Nassim Nicholas Taleb is a philosopher, statistician, and trader. He is known for his work on probability and risk, and he has written several books on these topics, including "The Black Swan," "Fooled by Randomness," and "Antifragile." Taleb is a professor at New York University and has worked as a quantitative trader and a hedge fund manager. He is known for his unconventional and controversial ideas and has been a vocal critic of mainstream approaches to economics and finance. Taleb's work has been influential in a number of fields, including finance, economics, and philosophy, and he has been recognized as one of the most influential thinkers of the 21st century.
+
 
 Wrote the INCERTO. Incerto means uncertainty or doubt in Latin.
 It is made up of 5 books of which I have read 2,"Antifragile" and "Skin in the Game." These are fascinating books. Antifragile talks about how great strength and resiliency comes from many trials and errors. Someone who is fragile is someone who hasnt tried a bunch of things and is scared of failure, because one failure could ruin them. Someone who is Antifragile is someone who has tried and failed many times and grows stronger and wiser with each trial they face.

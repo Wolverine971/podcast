@@ -20,52 +20,81 @@ export default {
   name: 'Admin',
   components: {
     FeedBackCard: () => import('../components/shared/feedbackCard.vue'),
-    PasswordProtect: () => import('../components/passwordProtect.vue')
+    PasswordProtect: () => import('../components/passwordProtect.vue'),
   },
 
   data: () => {
     return {
       blogs: [],
-      feedback: []
+      feedback: [],
     }
   },
   computed: {
-    isAuthenticated () {
+    isAuthenticated() {
       return this.$store.getters.authenticated
-    }
+    },
   },
   watch: {
-    async isAuthenticated (val) {
+    async isAuthenticated(val) {
       if (val && this.blogs.length === 0) {
-        this.blogs = await this.$content('blog').sortBy('title').fetch()
-        const feedbackPromises = []
-        this.blogs.forEach(async (blog) => {
-          const title = blog.slug.split(' ').join('-')
-          console.log(title)
-          feedbackPromises.push({
-            blog,
-            feedback: (await this.$axios.get(`${endpoints.feedback}/${title}`).then((resp) => { return resp.data })).feedback
-          })
-        })
-        Promise.all(feedbackPromises)
+        let feedbackPromises = []
+
+        const blogs = await this.$content('blog').sortBy('title').fetch()
+        const blogFeedback = await this.processBlogs(blogs)
+        feedbackPromises = [...feedbackPromises, ...blogFeedback]
+        const military = await this.$content('military').sortBy('title').fetch()
+        feedbackPromises = [
+          ...feedbackPromises,
+          ...(await this.processBlogs(military)),
+        ]
+        const tech = await this.$content('tech').sortBy('title').fetch()
+        feedbackPromises = [
+          ...feedbackPromises,
+          ...(await this.processBlogs(tech)),
+        ]
+        const people = await this.$content('people').sortBy('title').fetch()
+        feedbackPromises = [
+          ...feedbackPromises,
+          ...(await this.processBlogs(people)),
+        ]
+
         this.feedback = feedbackPromises
       }
-    }
-
+    },
   },
-  mounted () {
+  mounted() {
     // this.isAuthenticated(true)
-
   },
   methods: {
-    removeFeedback (fI, cI) {
+    removeFeedback(fI, cI) {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      this.feedback[fI].feedback = this.feedback[fI].feedback.filter((c, i) => i !== cI)
-    }
+      this.feedback[fI].feedback = this.feedback[fI].feedback.filter(
+        (c, i) => i !== cI
+      )
+    },
 
-  }
+    async processBlogs(blogs) {
+      const feedbackPromises = []
+      // blogs.forEach(async (blog) => {
+      for await (const blog of blogs) {
+        const title = blog.slug.split(' ').join('-')
+        console.log(title)
+        feedbackPromises.push({
+          blog,
+          feedback: (
+            await this.$axios
+              .get(`${endpoints.feedback}/${title}`)
+              .then((resp) => {
+                return resp.data
+              })
+          ).feedback,
+        })
+      }
+      // })
+      return await Promise.all(feedbackPromises)
+    },
+  },
 }
 </script>
 
-<style>
-</style>
+<style></style>

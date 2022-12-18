@@ -33,9 +33,9 @@ export default {
   },
   async asyncData ({ $content, params }) {
     const cleanUrl = params.slug
-      ? `/blog/${params.slug.replaceAll('-', ' ')}`
+      ? `/tech/${params.slug.replaceAll('-', ' ')}`
       : 'index'
-    const formattedUrl = `/blog/${params.slug}`
+    const formattedUrl = `/tech/${params.slug}`
 
     const page = await $content(cleanUrl)
       .fetch()

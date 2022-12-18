@@ -1,68 +1,83 @@
 <template>
-  <v-card elevation="2">
-    <v-card-title>{{ page.title }}</v-card-title>
-    <v-card-subtitle>{{ page.description }}</v-card-subtitle>
-    <div style="margin: 0 10px 10px 10px;">
-      <v-tooltip v-if="page.wikipedia" top>
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn
-            icon
-            v-bind="attrs"
-            outlined
-            small
-            @click="goTo(page.wikipedia)"
-            v-on="on"
-          >
-            <v-icon> mdi-wikipedia </v-icon>
-          </v-btn>
-        </template>
-        Wikipedia
-      </v-tooltip>
-
-      <v-tooltip v-if="page.twitter" top>
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn
-            icon
-            v-bind="attrs"
-            outlined
-            small
-            @click="goTo(page.twitter)"
-            v-on="on"
-          >
-            <v-icon> mdi-twitter </v-icon>
-          </v-btn>
-        </template>
-        Twitter
-      </v-tooltip>
-
-      <v-tooltip v-if="page.personalSite" top>
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn
-            icon
-            v-bind="attrs"
-            outlined
-            small
-            @click="goTo(page.personalSite)"
-            v-on="on"
-          >
-            <v-icon> mdi-post </v-icon>
-          </v-btn>
-        </template>
-        Personal Site
-      </v-tooltip>
+  <div>
+    <div style="margin: 10px 0">
+      <v-btn router color="" :to="'/people'">
+        <v-icon> mdi-arrow-left </v-icon>
+        People
+      </v-btn>
     </div>
 
-    <!-- description: Smart guy, with great ideas and wisdom.
+    <v-card elevation="2">
+      <v-card-title>{{ page.title }}</v-card-title>
+      <v-card-subtitle>{{ page.description }}</v-card-subtitle>
+      <div style="margin: 0 10px 10px 10px">
+        <v-tooltip v-if="page.wikipedia" top>
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn
+              icon
+              v-bind="attrs"
+              outlined
+              small
+              @click="goTo(page.wikipedia)"
+              v-on="on"
+            >
+              <v-icon> mdi-wikipedia </v-icon>
+            </v-btn>
+          </template>
+          Wikipedia
+        </v-tooltip>
+
+        <v-tooltip v-if="page.twitter" top>
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn
+              icon
+              v-bind="attrs"
+              outlined
+              small
+              @click="goTo(page.twitter)"
+              v-on="on"
+            >
+              <v-icon> mdi-twitter </v-icon>
+            </v-btn>
+          </template>
+          Twitter
+        </v-tooltip>
+
+        <v-tooltip v-if="page.personalSite" top>
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn
+              icon
+              v-bind="attrs"
+              outlined
+              small
+              @click="goTo(page.personalSite)"
+              v-on="on"
+            >
+              <v-icon> mdi-post </v-icon>
+            </v-btn>
+          </template>
+          Personal Site
+        </v-tooltip>
+      </div>
+
+      <!-- description: Smart guy, with great ideas and wisdom.
 meta points:
 wikipedia: https://en.wikipedia.org/wiki/Naval_Ravikant
 twitter: https://twitter.com/naval?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor
 personalSite: https://nav.al/ -->
 
-    <v-divider />
-    <v-card-text>
-      <nuxt-content :document="page" />
-    </v-card-text>
-  </v-card>
+      <v-divider />
+      <v-card-text class="blog">
+        <nuxt-content :document="page" />
+      </v-card-text>
+      <v-card-text>
+        <Feedback
+          :post="{ id: page.slug.replaceAll(' ', '-') }"
+          :type="'blog'"
+        />
+      </v-card-text>
+    </v-card>
+  </div>
 </template>
 
 <script>
@@ -113,9 +128,7 @@ export default {
       name: this.page.title,
       url: `https://djandnicktalkaboutstuff.com${this.formattedUrl}`,
       description: this.page.description,
-      sameAs: [
-        ...pages
-      ],
+      sameAs: [...pages],
       publisher: {
         '@type': 'Person',
         name: 'DJ Wayne'
@@ -172,7 +185,7 @@ blockquote {
   padding: 5px 15px;
   color: #58584c;
   z-index: 99;
-  margin: 10px
+  margin: 10px;
 }
 h1,
 h2,

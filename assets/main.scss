@@ -35,3 +35,18 @@ iframe {
 body {
   font-size: larger;
 }
+
+.blog {
+  p {
+    margin: 12px 0;
+  }
+  ul {
+    margin: 8px 0;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin-top: 12px;
+  }
+}

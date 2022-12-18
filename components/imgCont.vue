@@ -1,6 +1,6 @@
 <template>
   <div class="img-cont">
-    <img :src="getImg()" :alt="alt" style="width: 100%">
+    <img :src="getImg()" :alt="alt">
     <span class="img-caption">{{ alt }}</span>
   </div>
 </template>

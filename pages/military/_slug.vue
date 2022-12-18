@@ -1,10 +1,16 @@
 <template>
   <div>
+    <div style="margin: 10px 0">
+      <v-btn router color="" :to="'/blog'">
+        <v-icon> mdi-arrow-left </v-icon>
+        Blogs
+      </v-btn>
+    </div>
     <v-card elevation="2">
       <v-card-title>{{ page.title }}</v-card-title>
       <v-card-subtitle>{{ page.description }}</v-card-subtitle>
       <v-divider />
-      <v-card-text>
+      <v-card-text class="blog">
         <nuxt-content :document="page" />
       </v-card-text>
       <v-card-text>

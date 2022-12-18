@@ -51,9 +51,37 @@
         :class="currentTab === 'People' ? '' : 'hide'"
       >
         <h1>Interesting People</h1>
-        <v-list dense>
+
+        <!-- <v-list> -->
+        <v-list
+          v-for="(post, index) in peopleList"
+          :key="`post-${index}`"
+          dense
+        >
+          <nuxt-link :to="post.path.replaceAll(' ', '-')">
+            <v-list-item two-line>
+              <v-list-item-content>
+                <v-list-item-title> {{ post.title }}</v-list-item-title>
+                <v-list-item-subtitle>
+                  {{ post.description }}
+                </v-list-item-subtitle>
+              </v-list-item-content>
+            </v-list-item>
+          </nuxt-link>
+          <!-- <h2>
+              <nuxt-link :to="post.path.replaceAll(' ', '-')">
+                {{ post.title }}
+              </nuxt-link>
+            </h2>
+            <p v-if="post.description">
+              {{ post.description }}
+            </p>
+            <nuxt-content v-else :document="{ body: post.excerpt }" /> -->
+        </v-list>
+        <!-- </v-list> -->
+        <!-- <v-list dense>
           <v-list-item
-            v-for="(person, i) in peopleILike"
+            v-for="(person, i) in peopleList"
             :key="i + 'i'"
             :to="`/people/${person.name.replaceAll(' ', '-')}`"
           >
@@ -61,7 +89,7 @@
               <v-list-item-title> {{ person.name }}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
-        </v-list>
+        </v-list> -->
       </div>
     </div>
   </v-card>
@@ -72,6 +100,12 @@ export default {
   name: 'Favorites',
   components: {
     HofFeed: () => import('@/components/hofFeed')
+  },
+  async asyncData ({ $content }) {
+    const peopleList = await $content('people').fetch()
+    return {
+      peopleList
+    }
   },
   data: () => ({
     currentTab: 'Books',
