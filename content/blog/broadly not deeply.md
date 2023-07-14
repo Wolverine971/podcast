@@ -1,9 +1,51 @@
 ---
-title: Broadly Not Deeply
-description: We no longer see deeply, we see broadly
+title: "The Paradox of Perception: Seeing Broadly, Yet Barely Scratching the Surface"
+description: "Explore the paradox of our digital age: abundant information yet shallow understanding. Dive deeper with us into the power of curiosity."
 ---
 
-***** This blog is not finished, I have rewrote it many times and am still working on it  *****
+In an era where information is abundant and connections are a click away, we find ourselves in a paradoxical situation. We can see broadly, yet we struggle to see deeply. We are like sailors adrift in an ocean of knowledge, with no compass to guide us. This blog post is an exploration of this paradox, a journey into the depths of our collective curiosity, or lack thereof.
+
+### The Paradox of Perception
+
+We live in a time where our relationships often feel superficial. We are the most advanced humans to ever exist, yet we struggle to connect on a profound level. How did we get here? What mechanisms shaped this reality? What does this mean for our future, and what can we do about it?
+
+The paradox of our perception is most evident when we look at technology. We are constantly connected via our phones and the internet. We can contact anyone, anytime, anywhere. Yet, how many of us genuinely check in on more than a handful of people every week? How many people genuinely check in on us?
+
+### The Illusion of Knowledge
+
+The internet has given us access to an unprecedented amount of information. As Elon Musk once said, "you don't need college to learn stuff" because knowledge is available basically for free. Yet, how many of us are truly leveraging the internet to gain deep knowledge?
+
+We can find answers and resources for any question or topic that crosses our minds. We can directly call, text, or email anyone at any time. We can quickly access information about them through various social media platforms. This gives us the illusion of understanding the world and the people in it. But if we were to ask ourselves how many people we truly know on a deep level, the number would likely be small.
+
+### The Danger of Labels
+
+We constantly label those around us. Smart or dumb, kind or mean, funny or annoying, attractive or unattractive, strong or weak, friend or foe. These labels help us classify others, but do they help us understand them?
+
+When we label people, we risk clouding our judgment and seeking confirmation bias in the future. We all know what it's like to be judged prematurely or have an unwarranted label thrust upon us. We wish others knew the full picture, understood our intent, and knew the real us.
+
+### The Power of Curiosity
+
+The key to seeing deeply lies in curiosity. The word "curiosity" comes from the Latin word cūriōsus, meaning “careful” or “inquisitive.” Those who are curious are careful not to assume or jump to conclusions. They are diligent in observing all aspects of a thing, looking under the nooks and crannies for anything amiss.
+
+As Aaron Swartz once said, "What people call intelligence, just boils down to curiosity." And Albert Einstein famously stated, "I have no special talent. I am only passionately curious."
+
+### The Quest for Authenticity
+
+In today's world, there's a lot of talk about being authentic or congruent. Say what you mean and mean what you say. Don't try to hide your thoughts or feelings. Don't be fake. Speak your truth. Be real. Allow yourself to be seen, really seen.
+
+But how can you speak your truth if you don't know your truth? In order to be authentic, one must know oneself. As Socrates said, "know thyself." And ironically, he also proclaimed, "I know that I know nothing." This duality of seeking to know oneself and knowing that one knows nothing is the state of curiosity.
+
+### Wrapping up
+
+In the age of information, we can see broadly but struggle to see deeply. We have access to a wealth of knowledge, yet we often lose ourselves in the noise. The antidote to this chaos lies in curiosity, in seeking to understand rather than simply to know.
+
+As Matthew 7:7 says, "Ask and it will be given to you; seek and you will find; knock and the door will be opened to you." So let's start asking, seeking, and knocking. Let's start seeing deeply.
+
+For more insights and perspectives, I encourage you to check out [9takes.com](https://9takes.com/) where I am trying to respark that curiosity.
+
+Remember, the world is full of wonders waiting to be discovered. All it takes is a little curiosity. As Albert Einstein once said, "I have no special talent. I am only passionately curious." Let's embrace our curiosity and start seeing deeply.
+
+<!-- ***** This blog is not finished, I have rewrote it many times and am still working on it  *****
 
 ## We can see broadly but not deeply. 
 
@@ -18,23 +60,17 @@ The other thing is the internet. The internet connects us to information. We sea
 As far a social media, suffice to say it is entertainment masking as life u
 We won't touch on social media because the negative impacts should be self evident but suffice to say 
 
+You can call or text anyone you know and people you don't know. People who you don't know constantly ping you. People email you, companies email you, when you purchase something you can get texted or emailed a receipt. You are connected. You are also bobarded and overwhelmed by noise, we need signal.
 
-You can call or text anyone you know and people you don't know. People who you don't know call you soliciting their wares. People email you, companies email you, when you purchase something you can get texted or emailed a receipt. You are connected. You are also
+What are the Mechanisms that got us here
 
+What are the Psychological Effects on us
 
-Mechanisms 
+What are the Future Effects and implications
 
-Psychological Effects
+Are there any Antidotes to the chaos
 
-Future Effects
-
-Antidotes
-
-Journalism's Inverted Pyramid
-
-
-The realization that we can see broadly and not deeply is made possible when we explore 
-
+The realization that we can see broadly and not deeply is made possible when we start exploring
 
 We can see broadly in that we can find answers and resources for any question or topic that crosses your mind.  The internet and the cell phone combine to make information literally at our fingertip. With relationships we can directly call, text, or email them at anytime. Indirectly we can quickly access information about them through:
 - Twitter
@@ -91,22 +127,16 @@ How then can you speak your truth if you don't know your truth and in order to n
 
 This irony and duality of someone seeking to know thyself and also knowing that they know nothing is special. It is the state in which you are curious. Curious about yourself and about what you don't know. In a curious state you are listening, paying attention, seeking to understand. The word **curiosity**, comes from the Latin word cūriōsus, meaning “careful” or “inquisitive.” Those who curious are careful not to assume or jump to conclusions, and the word careful comes from the Latin word "diligens" which is where we get the word diligent. Those who are careful are diligent to observe all aspects of a thing, look under the nooks and crannies for anything amiss. Careful is also a synonym for being cautious as in aware of danger. 
 
-
-
 All these descriptions and peripheral synonyms surrounding "curiosity" are needed in order to see deep. 
 
-
-
 Checkout [9takes](https://9takes.com/)
-
-and they are inquisitive like a child who has just learned to walk. They 
 
 And is the only state which
 - > Ask and it will be given to you; seek and you will find; knock and the door will be opened to you - Matthew 7:7 
 - > "What people call intelligence, just boils down to curiosity" - Aaron Swartz
 - > "I have no special talent. I am only passionately curious" - Albert Einstein
 
-
-
 [Jobs to be done](https://www.youtube.com/watch?v=9h4chtNOuuc)
 People searching data and use it [[Defining Smart Enterprise#^513fbd]]
+
+Journalism's Inverted Pyramid -->

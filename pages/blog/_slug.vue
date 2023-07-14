@@ -7,17 +7,14 @@
       </v-btn>
     </div>
     <v-card elevation="2">
-      <v-card-title>{{ page.title }}</v-card-title>
-      <v-card-subtitle>{{ page.description }}</v-card-subtitle>
+      <h1>{{ page.title }}</h1>
+      <h2>{{ page.description }}</h2>
       <v-divider />
       <v-card-text class="blog">
         <nuxt-content :document="page" />
       </v-card-text>
       <v-card-text>
-        <Feedback
-          :post="{ id: page.slug.replaceAll(' ', '-') }"
-          :type="'blog'"
-        />
+        <Feedback :post="{ id: page.slug.replaceAll(' ', '-') }" :type="'blog'" />
       </v-card-text>
     </v-card>
     <blog-list class="margin-top" />
@@ -144,6 +141,7 @@ blockquote {
   z-index: 99;
   margin: 10px;
 }
+
 h1,
 h2,
 h3,
@@ -154,12 +152,14 @@ h5 {
   align-items: center;
   width: 100%;
 }
+
 .nuxt-content a {
   display: inline-flex;
   justify-content: flex-start;
   align-items: center;
   color: aquamarine;
 }
+
 .icon.icon-link {
   background-image: url('~assets/svg/pound-box.svg');
   display: inline-flex;

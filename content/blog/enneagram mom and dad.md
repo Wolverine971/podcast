@@ -1,9 +1,7 @@
 ---
-title: 'Enneagram Lineage'
-description: "Spiritual teachers, Freud and Plato"
+title: 'Plato and Freud had a baby it would be called the enneagram'
+description: "Both philosophers and psychologists keep stumbling around the ideas surrounding the enneagram"
 ---
-
-
 
 In most Enneagram circles when people talk about the origins of the Enneagram they talk about Oscar Ichazo and Claudio Naranjo. In those discussions the Enneagram gets linked to Buddhism, Taoism, the metaphysical and one can easily go down a mysticism rabbit hole. However what few people talk about or have not realized is that the enneagram's ideas have deeper historical links to early philosophy and psychology.
 
@@ -22,7 +20,7 @@ However, the origins of these ideas can be traced even further back to the philo
 
 Both Freud and Plato discuss the interplay of the of these three eerily similar forces. For Plato these forces played upon the soul and for Freud these forces played upon the psyche. In enneagram circles these forces form our personality and archetypes have been discovered which people have learned from and have endlessly discussed.
 
-In conclusion, the Enneagram's ideas of the head, heart, and instincts can be traced back to the work of Sigmund Freud and his theory of the psyche, and even further back to the philosophy of Plato and his concept of the human soul. Each of these theories emphasizes the importance of understanding the different aspects of the human psyche and how they shape our thoughts, feelings, and behaviors.
+In conclusion, the Enneagram's ideas of the head, heart, and instincts can be traced back to the work of Sigmund Freud and his theory of the psyche, and even further back to the philosophy of Plato and his concept of the human soul. Each of these theories emphasizes the importance of understanding the different aspects of the human psyche and how they shape our thoughts, feelings, and behaviors. More on that [here](https://9takes.com/blog/enneagram/philosophy-psychology-and-the-enneagram).
 
 
 

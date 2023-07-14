@@ -20,19 +20,19 @@ export default {
   name: 'Admin',
   components: {
     FeedBackCard: () => import('../components/shared/feedbackCard.vue'),
-    PasswordProtect: () => import('../components/passwordProtect.vue'),
+    PasswordProtect: () => import('../components/passwordProtect.vue')
   },
 
   data: () => {
     return {
       blogs: [],
-      feedback: [],
+      feedback: []
     }
   },
   computed: {
     isAuthenticated() {
       return this.$store.getters.authenticated
-    },
+    }
   },
   watch: {
     async isAuthenticated(val) {
@@ -45,22 +45,22 @@ export default {
         const military = await this.$content('military').sortBy('title').fetch()
         feedbackPromises = [
           ...feedbackPromises,
-          ...(await this.processBlogs(military)),
+          ...(await this.processBlogs(military))
         ]
         const tech = await this.$content('tech').sortBy('title').fetch()
         feedbackPromises = [
           ...feedbackPromises,
-          ...(await this.processBlogs(tech)),
+          ...(await this.processBlogs(tech))
         ]
         const people = await this.$content('people').sortBy('title').fetch()
         feedbackPromises = [
           ...feedbackPromises,
-          ...(await this.processBlogs(people)),
+          ...(await this.processBlogs(people))
         ]
 
         this.feedback = feedbackPromises
       }
-    },
+    }
   },
   mounted() {
     // this.isAuthenticated(true)
@@ -69,7 +69,7 @@ export default {
     removeFeedback(fI, cI) {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       this.feedback[fI].feedback = this.feedback[fI].feedback.filter(
-        (c, i) => i !== cI
+        (c, i) => c && i !== cI
       )
     },
 
@@ -87,13 +87,13 @@ export default {
               .then((resp) => {
                 return resp.data
               })
-          ).feedback,
+          ).feedback
         })
       }
       // })
       return await Promise.all(feedbackPromises)
-    },
-  },
+    }
+  }
 }
 </script>
 
